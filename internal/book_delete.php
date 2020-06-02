@@ -15,7 +15,7 @@ if (isset($_REQUEST['delete'])) {
 ?>
 <form method='GET'>
 <table class="table table-striped">
-<tr><td class="text-right">Book ID:</td><td><input class="form-control" type='text' name='ID' value='<?= $row['ID']; ?>'></td></tr>
+<tr><td class="text-right">Book ID:</td><td><input class="form-control" type='text' name='ID'></td></tr>
 <tr><td colspan="2" class="text-center"><input type='submit' class="btn btn-primary" value='Delete' name='delete'> 
 <input type='hidden' name='p' value='book_delete'>
 </td></tr>

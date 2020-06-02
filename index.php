@@ -60,10 +60,10 @@ if( ! isset($_SESSION['is_admin'])) {
               <a class="nav-link" href="javascript:show_orders()">Orders</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link " href="?p=newBook">New Book</a>
+            <a class="nav-link " href="?p=newBook">Add New Book</a>
          </li>
          <li class="nav-item">
-            <a class="nav-link " href="?p=Book_edit">Book Details</a>
+            <a class="nav-link " href="?p=Book_edit">Change Book Details</a>
          </li>
          <li class="nav-item">
             <a class="nav-link " href="?p=book_delete">Delete Book</a>

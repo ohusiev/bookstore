@@ -12,7 +12,6 @@ if(isset($_POST['action_save'])) {
 		print "Error : (".strftime('%H:%M:%S %a %d %B %Y',time()).")..";
 	}
 }
-
 ?>
 <form  method='POST'>
 <table class="table table-striped" >

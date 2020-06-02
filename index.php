@@ -59,7 +59,18 @@ if( ! isset($_SESSION['is_admin'])) {
             <li class="nav-item">
               <a class="nav-link" href="javascript:show_orders()">Orders</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link " href="?p=newBook">New Book</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link " href="?p=Book_edit">Book Details</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link " href="?p=book_delete">Delete Book</a>
+         </li>
+            
           </ul>
+          
 END;
 	}
 	if($_SESSION['username']!='?') {
@@ -75,17 +86,8 @@ END;
             <li class="nav-item">
               <a class="nav-link" href="?p=logout">Logout</a>
             </li>
-            <li class="nav-item">
-            <a class="nav-link " href="?p=newBook">New Book</a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link " href="?p=Book_edit">Book Details</a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link " href="?p=book_delete">Delete Book</a>
-         </li>
-            
-          </ul>
+           
+            </ul>
 END;
 	}
 ?>

@@ -2,7 +2,6 @@
 <?php
 if(isset($_POST['action_save'])) {
 	require_once("internal/dbconnect.php");
-	//$pass = hash('sha512', $_POST['pass']);
 	$sql = "INSERT INTO customer (Fname, Lname, email, uname, Address, Phone, passwd_enc) VALUES (?, ?, ?, ?, ?, ?, PASSWORD(?))";
 	$stmt = $mysqli->prepare($sql);
 	$stmt->bind_param("sssssss", $_POST['Fname'], $_POST['Lname'], $_POST['email'], $_POST['uname'], $_POST['Address'], $_POST['Phone'], $_POST['pass']);

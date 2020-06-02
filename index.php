@@ -75,6 +75,15 @@ END;
             <li class="nav-item">
               <a class="nav-link" href="?p=logout">Logout</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link " href="?p=newBook">New Book</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link " href="?p=Book_edit">Book Details</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link " href="?p=book_delete">Delete Book</a>
+         </li>
             
           </ul>
 END;
@@ -88,7 +97,7 @@ if( ! isset($_REQUEST['p'])) {
 }
 $p = $_REQUEST['p'];
 // list of the permited pages
-$pages = array('blog','register','start','shopinfo','login','do_login','after_login','logout','myinfo','contact','products','cart','catinfo','productinfo','add_cart','empty_cart','buy_cart','delete_item');
+$pages = array('blog','register','start','shopinfo','login','do_login','after_login','logout','myinfo','contact','products','cart','catinfo','productinfo','add_cart','empty_cart','buy_cart','delete_item','newBook','Book_edit','book_delete');
 
 $ok=false;
 foreach($pages as $pp) {

@@ -2,5 +2,5 @@
 
  $_SESSION['cart']=array();
 ?>
-Card is empty.... :-(
+Your Cart is Empty
 

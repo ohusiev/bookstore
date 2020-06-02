@@ -88,7 +88,7 @@ if( ! isset($_REQUEST['p'])) {
 }
 $p = $_REQUEST['p'];
 // list of the permited pages
-$pages = array('blog','register','start','shopinfo','login','do_login','after_login','logout','myinfo','contact','products','cart','catinfo','productinfo','add_cart','empty_cart','buy_cart');
+$pages = array('blog','register','start','shopinfo','login','do_login','after_login','logout','myinfo','contact','products','cart','catinfo','productinfo','add_cart','empty_cart','buy_cart','delete_item');
 
 $ok=false;
 foreach($pages as $pp) {

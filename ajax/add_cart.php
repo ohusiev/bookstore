@@ -10,5 +10,5 @@ if(!isset($_SESSION['cart'][$pid])) {
 $_SESSION['cart'][$pid] += $_REQUEST['qty']; 
 
 
-print "Product added to your cart <br>You have  " . $_SESSION['cart'][$pid] . " products in your cart";
+print "Product added to your cart <br>You have  " . $_SESSION['cart'][$pid] . " product(s) in your cart";
 ?>

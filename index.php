@@ -37,7 +37,7 @@ if( ! isset($_SESSION['is_admin'])) {
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
          <?php
-         require ("internal\\topmenu.php");
+         require ("internal/topmenu.php");
          ?>
         </div>
       </nav>
@@ -68,7 +68,6 @@ if( ! isset($_SESSION['is_admin'])) {
          <li class="nav-item">
             <a class="nav-link " href="?p=book_delete">Delete Book</a>
          </li>
-            
           </ul>
           
 END;

@@ -55,7 +55,7 @@ if(!is_array($_SESSION['cart'])) {
 			  data-locale="auto">
 			</script>			  
 			'
-			buy_cart();
+			$_SESSION['cart'] = array();;
 		}
 	}
 ?>

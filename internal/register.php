@@ -2,7 +2,7 @@
 <?php
 if(isset($_POST['action_save'])) {
 	require_once("internal/dbconnect.php");
-	$sql = "INSERT INTO customer (Fname, Lname, email, uname, Address, Phone, passwd_enc) VALUES (?, ?, ?, ?, ?, ?, ?)";
+	$sql = "INSERT INTO customer (Fname, Lname, email, uname, Address, Phone, passwd_enc) VALUES (?, ?, ?, ?, ?, ?, PASSWORD(?))";
 	$stmt = $mysqli->prepare($sql);
 	$stmt->bind_param("sssssss", $_POST['Fname'], $_POST['Lname'], $_POST['email'], $_POST['uname'], $_POST['Address'], $_POST['Phone'], $_POST['pass']);
 	$r = $stmt->execute();
@@ -51,20 +51,4 @@ if(isset($_POST['action_save'])) {
 		}  	
 		return true; 
 		} 
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-	$(document).ready(function(){
-		$('#uname').blur(function(){
-			var username = $(this).value();
-			$.ajax({
-				url:"checkuname.php";
-				method: "POST";
-				data:{uname:username};	
-				//dataType: "text";
-				sucsess: function(register){
-					$('#availability').html(register);
-				}
-				})
-			})
-	})
 </script>

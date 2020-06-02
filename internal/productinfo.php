@@ -28,7 +28,6 @@ if( $stmt = $mysqli->prepare($sql) ) {
 }
 ?>
 
-
 <div id='response'></div>
 <script>
 var xmlhttp;

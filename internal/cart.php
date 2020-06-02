@@ -54,8 +54,7 @@ if(!is_array($_SESSION['cart'])) {
 			  data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
 			  data-locale="auto">
 			</script>			  
-			'
-			$_SESSION['cart'] = array();;
+			';
 		}
 	}
 ?>

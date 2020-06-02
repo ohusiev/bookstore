@@ -16,8 +16,9 @@ if (isset($_REQUEST['action_save'])) {
 <form method='GET'>
 <table class="table table-striped" >
 <?php
-$sql = "SELECT * FROM product WHERE ID='$_REQUEST[ID]'";
+$sql = "SELECT * FROM product WHERE ID=?";
 $stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s", $_REQUEST['ID']);
 $stmt->execute();
 $res = $stmt->get_result();
 $row = $res->fetch_assoc();

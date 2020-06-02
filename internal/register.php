@@ -53,3 +53,19 @@ if(isset($_POST['action_save'])) {
 		return true; 
 		} 
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+	$(document).ready(function(){
+		$('#uname').blur(function(){
+			var username = $(this).value();
+			$.ajax({
+				url:"checkuname.php";
+				method: "POST";
+				data:{uname:username};	
+				//dataType: "text";
+				sucsess: function(register){
+					$('#availability').html(register);
+				}
+				})
+			})
+	})
+</script>

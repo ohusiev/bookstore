@@ -2,6 +2,7 @@
 
 <?php
 if(isset($_POST['action_save'])) {
+	require_once "internal/dbconnect.php";
 	if(isset($_POST) & !empty($_POST)){
 		$username  = mysqli_real_escape_string($mysqli, $_POST['uname']);
 		$sql = "SELECT * FROM customer WHERE uname='$username'";

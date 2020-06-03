@@ -27,8 +27,20 @@ function show_customers_json(x,y,z) {
 
 	}
 
-	$.each(o,function(i,x) {
+/*	$.each(o,function(i,x) {
 		$('#custtable TBODY').append('<tr><td>'+ x.ID+'</td><td>'+x.Fname+'</td><td>'+x.Lname+'</td></tr>');
-	});
+	});*/
+	
 }
+function show_orders_json() {
+	$.ajax('ajax/showall_orders.php', { success: show_orders_json_response} );
+}
+function show_orders_json_response(x,y,z) {
+	var o = JSON.parse(x);
+	$('#maincontent').html('<table class="table" id="custtable"><thead><tr><th>ID</th><th>Date</th><th>Customer</th></tr></thead><tbody></tbody></table>');
+	for(var i = 0; i< o.length;i++) {
+		var t = '<tr><td>'+ o[i].OID+'</td><td>'+o[i].oDate+'</td><td>'+o[i].Lname+'' +o[i].Fname+'</td></tr>';
+		$('#custtable TBODY').append(t);
 
+	}
+}

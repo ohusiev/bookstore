@@ -1,8 +1,15 @@
+<<<<<<< HEAD
+<form method='POST'>
+  
+=======
 
+>>>>>>> 7fa87d93b4142c82a4985b41e45a6a49917a35ea
 <head>
-    <h1> Contact us </h1>
+
+<h1> Contact us </h1>
 <style>
-h1{
+    
+h1 {
 	font-weight: normal;
 	font-size: 4em;
 	font-family: 'Raleway', sans-serif;
@@ -22,8 +29,8 @@ h1{
   }
   
   label {
-	display: block;
-	font-family: 'Aleo';
+    display: block;
+	font-family: 'Raleway', sans-serif;
 	padding-bottom: 4px;
     font-size: 1.25em;
   }
@@ -35,7 +42,7 @@ h1{
 	font-size: 1.25em;
 	font-family: 'Aleo';
 	width: 500px;
-	padding: 8px;
+    padding: 8px;
   }
   
   textarea {
@@ -129,8 +136,5 @@ if($_POST) {
         echo '<p>We are sorry but the email did not go through.</p>';
     }
 } 
-//else {
-    //echo '<p>Something went wrong</p>';
-//}
- 
+
 ?>

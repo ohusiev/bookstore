@@ -1,5 +1,10 @@
+
+
+
 <h2>Change Book Details</h2>
-<?php 
+
+<?php
+
 if (isset($_REQUEST['action_save'])) {
 	setlocale(LC_ALL, 'el_GR.UTF-8');
 	$sql = "UPDATE product SET Title='$_REQUEST[Title]', Description='$_REQUEST[Description]',Price='$_REQUEST[Price]', Category='$_REQUEST[Category]' WHERE ID='$_REQUEST[ID]'";
@@ -35,3 +40,51 @@ $row = $res->fetch_assoc();
 </table>
 </form>
 		
+
+
+
+<?php
+
+if(!isset($_SESSION['is_admin']) || $_SESSION['is_admin']==0) {
+	die("You are not admin");
+}
+$sql = 'SELECT*, ID, Title, Description, Price, Category FROM product';
+$stmt = $mysqli->prepare($sql);	
+$stmt->bind_param('i',$row['ID']);
+$stmt->execute();
+
+$res = $stmt->get_result();
+echo "<table><tr><th>ID</th><th>Title</th><th>Decription</th><th>Price</th><th>Category</th></tr>";
+while($row = $res->fetch_assoc()) {
+	echo
+
+	"<tr>
+	  <td>{$row['ID']}</td>
+	  <td>{$row['Title']}</td>
+	  <td>{$row['Description']}</td>
+	  <td>{$row['Price']}</td>
+	  <td>{$row['Category']}</td>
+	</tr>\n";
+}
+print "</table>";
+?>
+</form>
+<tr><td colspan="2" class="text-center"> <input type='submit' class="btn btn-primary" value='Get Book Details'> <input type='submit' class="btn btn-primary" value='Save' name='action_save'> <input type='reset' class="btn btn-primary" value='Cancel'>
+<input type='hidden' name='p' value='Book_edit'>
+</td></tr>
+
+<?php
+
+if (isset($_REQUEST['action_save'])) {
+	setlocale(LC_ALL, 'el_GR.UTF-8');
+	$sql = "UPDATE product SET Title='$_REQUEST[Title]', Description='$_REQUEST[Description]',Price='$_REQUEST[Price]', Category='$_REQUEST[Category]' WHERE ID='$_REQUEST[ID]'";
+	//$stmt->bind_param("ssssi", $_REQUEST['Title'], $_REQUEST['Decription'], $_REQUEST['Price'], $_REQUEST['Category'], $_SESSION['userid']);
+	$stmt = $mysqli->prepare($sql);
+	$r = $stmt->execute();
+	if($r) {
+		print "Record was updated successfully : (".strftime('%H:%M:%S %a %d %b %Y',time()).").." ;
+	} else {
+		print "Error : (".strftime('%H:%M:%S %a %d %B %Y',time()).")..";
+	}
+}
+?>

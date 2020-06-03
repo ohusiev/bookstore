@@ -36,7 +36,7 @@ function show_orders() {
 }
 function show_orders_response(x,y,z) {
 	var o = JSON.parse(x);
-	$('#maincontent').html('<table class="table" id="custtable"><thead><tr><th>ID</th><th>Date</th><th>Customer</th></tr></thead><tbody></table>')
+	$('#maincontent').html('<table class="table" id="custtable"><thead><tr><th>Order ID</th><th>Date</th><th>Customer</th></tr></thead><tbody></table>')
 	for(var i = 0; i< o.length;i++) {
 		var t = '<tr>\n\
 		<td>'+ o[i].OID + '</td>\n\

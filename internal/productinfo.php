@@ -1,3 +1,13 @@
+<body>
+<div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="http://localhost/bookstore/index.php?p=start">Home</a>
+			<a class="breadcrumb-item" href="?p=products">Product</a>
+            <span class="breadcrumb-item active">Selected Book</span>
+        </div>
+    </div>
+</body>
+
 <?php
 $pid = $_REQUEST['pid'];
 $sql = "select * from product where ID=?";

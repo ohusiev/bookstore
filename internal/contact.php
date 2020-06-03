@@ -1,6 +1,21 @@
-<form  method='POST'>
-  
+
 <head>
+    <h1> Contact us </h1>
+<style>
+h1{
+	font-weight: normal;
+	font-size: 4em;
+	font-family: 'Raleway', sans-serif;
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 500px;
+	color: #F90;
+    text-align: center;
+
+}
+</style>
+
+
 <style type="text/css" media="screen">
     div.elem-group {
 	margin: 40px 0;
@@ -10,9 +25,9 @@
 	display: block;
 	font-family: 'Aleo';
 	padding-bottom: 4px;
-	font-size: 1.25em;
+    font-size: 1.25em;
   }
-  
+ 
   input, select, textarea {
 	border-radius: 2px;
 	border: 1px solid #ccc;
@@ -53,6 +68,7 @@ body {
 }
 </style>
 
+<form  method='POST'>
   <div class="elem-group">
     <label for="name">Name</label>
 
@@ -75,6 +91,7 @@ body {
   <button type="submit">Send Message</button>
 </form>
 <?php
+
  
 if($_POST) {
     $visitor_name = "";

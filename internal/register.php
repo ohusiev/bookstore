@@ -1,7 +1,16 @@
 <h2>Registration</h2>
+
 <?php
 if(isset($_POST['action_save'])) {
-	//require_once("internal/dbconnect.php");
+	require_once "internal/dbconnect.php";
+	if(isset($_POST) & !empty($_POST)){
+		$username  = mysqli_real_escape_string($mysqli, $_POST['uname']);
+		$sql = "SELECT * FROM customer WHERE uname='$username'";
+		$result = mysqli_query($mysqli,$sql);
+		$count = mysqli_num_rows($result);
+		if($count>0){
+			$response = "Name is not available";
+		}else{
 	$sql = "INSERT INTO customer (Fname, Lname, email, uname, Address, Phone, passwd_enc) VALUES (?, ?, ?, ?, ?, ?, PASSWORD(?))";
 	$stmt = $mysqli->prepare($sql);
 	$stmt->bind_param("sssssss", $_POST['Fname'], $_POST['Lname'], $_POST['email'], $_POST['uname'], $_POST['Address'], $_POST['Phone'], $_POST['pass']);
@@ -10,18 +19,20 @@ if(isset($_POST['action_save'])) {
 		print "<h3>You are registered : (".strftime('%H:%M:%S %a %d %b %Y',time()).")</h3>" ;
 	} else {
 		print "Registration Error : (".strftime('%H:%M:%S %a %d %B %Y',time()).")..";
+		}
 	}
+}
 }
 ?>
 
 <form name="form1" method='POST' id="regForm">
 <table class="table table-striped" >
 
-<tr><td class="text-right">First Name:</td><td><input class="form-control" type='text' name='Fname'></td></tr>
-<tr><td class="text-right">Last Name:</td><td><input class="form-control" type='text' name='Lname'></td></tr>
-<tr><td class="text-right">Email:</td><td><input class="form-control" type='text' name='email'></td></tr>
-<tr><td class="text-right">User Name:</td><td><input class="form-control" type='text' name='uname' id='uname'maxlength="15">
-<br/><span id='availability'></span></td></tr>
+<tr><td class="text-right">First Name:</td><td><input class="form-control" type='text' name='Fname' required></td></tr>
+<tr><td class="text-right">Last Name:</td><td><input class="form-control" type='text' name='Lname' required></td></tr>
+<tr><td class="text-right">Email:</td><td><input class="form-control" type='text' name='email' required></td></tr>
+<tr><td class="text-right">User Name:</td><td><input class="form-control" type='text' name='uname' id='uname' onkeyup="javascript:show_uname(this.value)" maxlength="15"required>
+<br/><span id='check' style="color:red;"></span></td></tr>
 <tr><td class="text-right">Password:</td><td><input class="form-control" type='password' name='pass' required oninvalid="return required()"></td></tr>
 <tr><td class="text-right">Repeat Password:</td><td><input class="form-control" type='password' name='repass'required oninvalid="return required()"></td></tr>
 <tr><td class="text-right">Address:</td><td><textarea class="form-control" name='Address' ></textarea></td></tr>
@@ -32,6 +43,8 @@ if(isset($_POST['action_save'])) {
 </table>
 </form>
 <script>
+var str = <?php echo json_encode($response) ?>;
+document.getElementById("check").innerHTML = str;
 	var form1 = document.getElementById('regForm');
 	function compareStr(){
 		if(form1.pass.value != form1.repass.value)
@@ -52,3 +65,4 @@ if(isset($_POST['action_save'])) {
 		return true; 
 		} 
 </script>
+

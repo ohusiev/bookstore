@@ -1,5 +1,4 @@
-<form  method='POST'>
-  
+
 <head>
     <h1> Contact us </h1>
 <style>
@@ -69,6 +68,7 @@ body {
 }
 </style>
 
+<form  method='POST'>
   <div class="elem-group">
     <label for="name">Name</label>
 

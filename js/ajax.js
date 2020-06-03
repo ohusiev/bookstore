@@ -1,4 +1,5 @@
-var xmlhttp;
+/*var xmlhttp;
+
 function show_orders() {
 	xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = show_orders_response;
@@ -11,6 +12,7 @@ function show_orders_response() {
 		document.getElementById("maincontent").innerHTML = xmlhttp.responseText;
 	}
 }
+*/
 
 function show_customers() {
 	$.ajax('ajax/show_allusers_json.php', { success: show_customers_json} );
@@ -18,7 +20,7 @@ function show_customers() {
 
 function show_customers_json(x,y,z) {
 	var o = JSON.parse(x);
-	$('#maincontent').html('<table class="table" id="custtable"><thead><tr><th>ID</th><th>Fname</th><th>Lname</th></tr></thead><tbody></tbody></table>');
+	$('#maincontent').html('<table class="table" id="custtable"><thead><tr><th>ID</th><th>Fname</th><th>Lname</th></tr></thead><tbody></table>')
 	for(var i = 0; i< o.length;i++) {
 		var t = '<tr><td>'+ o[i].ID+'</td><td>'+o[i].Fname+'</td><td>'+o[i].Lname+'</td></tr>';
 		$('#custtable TBODY').append(t);
@@ -29,15 +31,21 @@ function show_customers_json(x,y,z) {
 	});*/
 	
 }
-function show_orders_json() {
-	$.ajax('ajax/showall_orders.php', { success: show_orders_json_response} );
+function show_orders() {
+	$.ajax('ajax/showall_orders.php', { success: show_orders_response} );
 }
-function show_orders_json_response(x,y,z) {
+function show_orders_response(x,y,z) {
 	var o = JSON.parse(x);
-	$('#maincontent').html('<table class="table" id="custtable"><thead><tr><th>ID</th><th>Date</th><th>Customer</th></tr></thead><tbody></tbody></table>');
+	$('#maincontent').html('<table class="table" id="custtable"><thead><tr><th>ID</th><th>Date</th><th>Customer</th></tr></thead><tbody></table>')
 	for(var i = 0; i< o.length;i++) {
-		var t = '<tr><td>'+ o[i].OID+'</td><td>'+o[i].oDate+'</td><td>'+o[i].Lname+'' +o[i].Fname+'</td></tr>';
+		var t = '<tr>\n\
+		<td>'+ o[i].OID + '</td>\n\
+		<td>'+ o[i].OrderDate + '</td>\n\
+		<td>'+ o[i].Firstname + ' ' +o[i].Lastname + '</td>\n\
+		</tr>';
 		$('#custtable TBODY').append(t);
 
-	}
+	 }
+	 
+	
 }

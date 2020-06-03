@@ -6,19 +6,32 @@ session_start();
 if(!isset($_SESSION['is_admin']) || $_SESSION['is_admin']==0) {
 	die("You are not admin");
 }
-$sql = 'SELECT *,O.ID as OID,C.ID as CID FROM orders O INNER JOIN  `customer` C ON O.Customer = C.ID';
+//$sql = 'SELECT * ,O.ID AS OID, O.oDate as OrderDate, C.ID AS CID FROM orders O INNER JOIN  `customer` C ON O.Customer = C.ID';
+
+$sql = 'SELECT O.ID as OID, O.oDate as OrderDate,  C.Fname as Firstname, C.Lname as Lastname FROM orders O INNER JOIN  `customer` C ON O.Customer = C.ID';
 
 $stmt = $mysqli->prepare($sql);
 $stmt->execute();
 $res = $stmt->get_result();
-print "<ol>";
+$r = $res->fetch_all(MYSQLI_ASSOC);
+print json_encode($r);
 
-
-$sql2 = 'SELECT * , Quantity * Price AS TotalPrice FROM  `orderdetails` O INNER JOIN product P ON O.Product = P.ID WHERE Orders =?';
-
+/*$sql2 = 'SELECT Quantity * Price as TotalPrice FROM  `orderdetails` O INNER JOIN product P ON O.Product = P.ID WHERE Orders =?';
 $stmt2 = $mysqli->prepare($sql2);
+$stmt2->bind_param('i',$row['OID']);
+$stmt2->execute();
+$res2 = $stmt2->get_result();
+$r2 = $res2->fetch_all(MYSQLI_ASSOC);
+print json_encode($r2); 
 
-while($row = $res->fetch_assoc()) {
+////print "<ol>";
+
+
+//$sql2 = 'SELECT * , Quantity * Price AS TotalPrice FROM  `orderdetails` O INNER JOIN product P ON O.Product = P.ID WHERE Orders =?';
+
+//$stmt2 = $mysqli->prepare($sql2);
+
+/*while($row = $res->fetch_assoc()) {
 	print "<li>OrderID: $row[OID], Date: $row[oDate], Customer: $row[Fname] $row[Lname]\n";
 	$stmt2->bind_param('i',$row['OID']);
 	$stmt2->execute();
@@ -29,5 +42,5 @@ while($row = $res->fetch_assoc()) {
 	}
 	print "</ol>";
 }
-print "</ol>";
+print "</ol>";*/
 ?>

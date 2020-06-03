@@ -1,7 +1,7 @@
 <body>
 <div class="breadcrumb">
         <div class="container">
-            <a class="breadcrumb-item" href="http://localhost/bookstore/index.php?p=start">Home</a>
+            <a class="breadcrumb-item" href="index.php?p=start">Home</a>
             <span class="breadcrumb-item active">Shop Info</span>
 </div>
 </div>
@@ -17,8 +17,12 @@
       <!-- ################################################################################################ -->
       <h1>About our shop</h1>
       <img src="https://i.pinimg.com/564x/28/d9/30/28d9303cc59dfa8dca3a520ef437d336.jpg" alt="Biblioo">
+      <br>
+      <br>
+      <br>
       <p>Biblioo Webstore was launched in September 2014 to take care of your literary needs and more at anytime, anywhere! Place your online orders with us for publications and non-book items (mostly designed and manufactured in Japan) when you can’t get enough at our physical retail bookstores.
-Biblioo Privilege Card (BPC) membership programme that was launched in April 2012 allows members to enjoy regular 10% off their off-and-online purchase with Biblioo. A true benefit for book lovers to make their purchase with us.
+Biblioo Privilege Card (BPC) membership programme that was launched in April 2012 allows members to enjoy regular 10% off their off-and-online purchase with Biblioo. </p>
+<p>A true benefit for book lovers to make their purchase with us.
 Biblioo Corporate Sales Office is another important pillar of our total business and serves as the general coordinator for knowledge and information dissemination to libraries, academic institutions, organizations and corporations in Greece and the region, in support of their research and development needs.
 Always re-inventing itself, Biblio continuously strives to serve the local reading population better.</p>
 <p><b>Our Core Values</b></p>
@@ -53,7 +57,7 @@ Actors and actresses are well cared for so that they can perform their very best
 
 <?php
 
-echo "Hello from php";
+
 
 ?>
 </p>

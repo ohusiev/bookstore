@@ -1,4 +1,3 @@
-
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="index.php?p=start">Home</a>

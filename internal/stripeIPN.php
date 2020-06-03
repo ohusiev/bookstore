@@ -1,6 +1,6 @@
 <?php
 	require_once "config.php";
-	require_once "cart.php";
+	require_once "checkout.php";
 
 	\Stripe\Stripe::setVerifySslCerts(false);
 
@@ -15,11 +15,11 @@
 	// Charge the user's card:
 	$charge = \Stripe\Charge::create([
 		"customer" => $customer->id
-		"amount" => $sum,
+		"amount" => $_SESSION['total_price'],
 		"currency" => "eur",		
 	]);
 
 	//send an email
 	//store information to the database
-	echo 'Success! You have been charged €' . ($sum);
+	echo 'Success! You have been charged €' . ($_SESSION['total_price']);
 ?>

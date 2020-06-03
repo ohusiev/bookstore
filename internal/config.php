@@ -1,6 +1,6 @@
 <?php
 	require_once "stripe-php-master/init.php";	
-	require_once "cart.php";
+	require_once "checkout.php";
 
 	$stripeDetails = array(
 		"secretKey" => "sk_test_4eC39HqLyjWDarjtT1zdp7dc",

@@ -1,65 +1,81 @@
-<h2>Cart</h2>
-<table class="table table-hover">
-<thead>
-      <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Subtotal</th>
-		<th> <a href='?p=empty_cart' class='btn btn-primary'>Clear Cart</a></th>
-      </tr>
-    </thead>
-<?php
-require_once "config.php";
+<?php	
+	require_once "internal/cart_operations.php";	
 
-if(!is_array($_SESSION['cart'])) {
- $_SESSION['cart']=array();
-}
+	if(isset($_POST['pid'])){
+		$pid = $_POST['pid'];
+	}
 
-	if( count($_SESSION['cart'])==0) {
-		print "Your Cart is empty!!!!";
-		return;
-	} else {
-		$sql = "select * from product where ID=?";
-		$stmt = $mysqli->prepare($sql);
-
-		$sum=0;
-		$c=0;
-		foreach($_SESSION['cart'] as $p => $q) {
-			 $stmt->bind_param("i", $p);
-			 $stmt->execute();
-			 $result = $stmt->get_result();
-			 $row = $result->fetch_assoc();
-			 print "<tr><td>$row[Title]  </td><td> $q * {$row['Price']}&euro; </td><td>=" . ($q * $row['Price']) . "&euro; </td> 
-			 <td>
-			 <a href='?p=delete_item' class='btn btn-primary'>Remove Item</a>
-		 	 </td></tr>";
-			 $sum += ($q * $row['Price']);
-			 $amt=$sum *100;			 
-			 $c++; 
+	if(isset($pid)){
+		// new item selected
+		if(!isset($_SESSION['cart'])){			
+			$_SESSION['cart'] = array();
+			$_SESSION['total_items'] = 0;
+			$_SESSION['total_price'] = '0.00';
 		}
-		if($c==0) {
-			print "<tr><td colspan='3'>Your Cart is Empty</td></tr>";
-		}
-		print "<tr><td>Total<td><td>$sum &euro;</td></tr></table>";
-		 
-		if($c>0){
-			//print "<a href='?p=buy_cart' class='btn btn-primary'>Submit order</a>
-			//	<a href='?p=empty_cart' class='btn btn-primary'>Delete  Cart</a>	";
-			echo '			
-			<script
-			  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-			  data-key="'.$stripeDetails['publishableKey'].'"
-			  data-amount="'.$amt.'"
-			  data-currency="eur"			  
-			  data-name=""
-			  data-label="Checkout"
-			  data-description="Widget"
-			  data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-			  data-locale="auto">
-			</script>				  
-			';											
+
+		if(!isset($_SESSION['cart'][$pid])){
+			$_SESSION['cart'][$pid] = 1;
+		} elseif(isset($_POST['cart'])){
+			$_SESSION['cart'][$pid]++;
+			unset($_POST);
 		}
 	}
+
+	//when update button is clicked, change the qty of each product
+	if(isset($_POST['update'])){
+		foreach($_SESSION['cart'] as $pid =>$qty){
+			if($_POST[$pid] == '0'){
+				unset($_SESSION['cart']["$pid"]);
+			} else {
+				$_SESSION['cart']["$pid"] = $_POST["$pid"];
+			}
+		}
+	}	
+	
+	$title = "Cart";
+
+	if(isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
+		$_SESSION['total_price'] = total_price($_SESSION['cart']);
+		$_SESSION['total_items'] = total_items($_SESSION['cart']);
+?>
+   	<form action="?p=cart" method="post">
+	   	<table class="table">
+	   		<tr>
+	   			<th>Item</th>
+	   			<th>Price</th>
+	  			<th>Quantity</th>
+	   			<th>Total</th>
+	   		</tr>
+			   
+	   		<?php
+		    	foreach($_SESSION['cart'] as $pid => $qty){
+					$conn = db_connect();
+					$row = mysqli_fetch_assoc(getproductByID($conn, $pid));
+			?>
+			<tr>
+				<td><?php echo $row['Title']; ?></td>
+				<td><?php echo "€" . $row['Price']; ?></td>
+				<td><input type="text" value="<?php echo $qty; ?>" size="3" name="<?php echo $pid; ?>"></td>
+				<td><?php echo "€" . $qty * $row['Price']; ?></td>
+			</tr>
+			<?php } ?>
+		    <tr>		    	
+		    	<th>&nbsp;</th>
+		    	<th><?php echo $_SESSION['total_items']; ?></th>
+		    	<th><?php echo "€" . $_SESSION['total_price']; ?></th>
+		    </tr>
+	   	</table>
+		   <input type="submit" class="btn btn-primary" name="update" value="Update Cart">
+		   <a href='?p=empty_cart' class='btn btn-primary'>Empty Cart</a>	
+	</form>
+	<br/><br/>
+	<a href="?p=checkout" class="btn btn-primary">Go To Checkout</a> 
+	<a href="?p=products" class="btn btn-primary">Continue Shopping</a>	
+<?php
+	} else {
+		echo "<p class=\"text-warning\">Your Cart is Empty!</p>";
+	}
+	if(isset($conn)){ mysqli_close($conn); }
 ?>
 
 

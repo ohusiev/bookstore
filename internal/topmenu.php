@@ -1,5 +1,5 @@
 <?php
-if($_SESSION['username']!='?' || $_SESSION['username']!='?') {
+if(!isset($_SESSION['username'])) {
 		print <<<END
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">

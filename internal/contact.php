@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <form method='POST'>
   
+=======
+
+>>>>>>> 7fa87d93b4142c82a4985b41e45a6a49917a35ea
 <head>
 
 <h1> Contact us </h1>
@@ -71,6 +75,7 @@ body {
 }
 </style>
 
+<form  method='POST'>
   <div class="elem-group">
     <label for="name">Name</label>
 

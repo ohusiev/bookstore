@@ -15,6 +15,7 @@
         <h6><a href="http://localhost/bookstore/index.php?p=register">find out more by registering with us!</a></h6>
         <br>
         <br>
+        <br>
     <div class="bseller main">
         <h3>Categories</h3>
         <div class="entry-meta">
@@ -154,3 +155,4 @@
             </div>
         </div>
     </section>
+</body>

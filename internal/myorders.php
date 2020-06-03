@@ -1,0 +1,12 @@
+<h2> My orders</h2>
+<?php
+require "../internal/dbconnect.php";
+//if(!isset($_SESSION['is_admin']) || $_SESSION['is_admin']==0) {
+//	die("You are not admin");
+//}
+$stmt = $mysqli->prepare("SELECT * FROM orders WHERE Customer='$_SESSION['username']'");
+$stmt->execute();
+$res = $stmt->get_result();
+$r = $res->fetch_all(MYSQLI_ASSOC);
+print json_encode($r);
+?>

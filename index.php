@@ -37,7 +37,7 @@ if( ! isset($_SESSION['is_admin'])) {
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
          <?php
-         require ("internal\\topmenu.php");
+         require ("internal/topmenu.php");
          ?>
         </div>
       </nav>
@@ -59,7 +59,17 @@ if( ! isset($_SESSION['is_admin'])) {
             <li class="nav-item">
               <a class="nav-link" href="javascript:show_orders()">Orders</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link " href="?p=newBook">Add New Book</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link " href="?p=Book_edit">Change Book Details</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link " href="?p=book_delete">Delete Book</a>
+         </li>
           </ul>
+          
 END;
 	}
 	if($_SESSION['username']!='?') {
@@ -75,8 +85,8 @@ END;
             <li class="nav-item">
               <a class="nav-link" href="?p=logout">Logout</a>
             </li>
-            
-          </ul>
+           
+            </ul>
 END;
 	}
 ?>
@@ -88,7 +98,7 @@ if( ! isset($_REQUEST['p'])) {
 }
 $p = $_REQUEST['p'];
 // list of the permited pages
-$pages = array('blog','register','start','shopinfo','login','do_login','after_login','logout','myinfo','contact','products','cart','catinfo','productinfo','add_cart','empty_cart','buy_cart','delete_item');
+$pages = array('blog','register','start','shopinfo','login','do_login','after_login','logout','myinfo','contact','products','cart','catinfo','productinfo','add_cart','empty_cart','buy_cart','delete_item','newBook','Book_edit','book_delete');
 
 $ok=false;
 foreach($pages as $pp) {

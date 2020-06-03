@@ -12,14 +12,13 @@ if(isset($_POST['action_save'])) {
 		print "Error : (".strftime('%H:%M:%S %a %d %B %Y',time()).")..";
 	}
 }
-
 ?>
 <form  method='POST'>
 <table class="table table-striped" >
-<tr><td class="text-right">Title:</td><td><input class="form-control" type='text' name='Title' value='<?= $row['Title']; ?>'></td></tr>
-<tr><td class="text-right">Description:</td><td><input class="form-control" type='text' name='Description' value='<?= $row['Description']; ?>'></td></tr>
-<tr><td class="text-right">Price:</td><td><input class="form-control" type='text' name='Price' value='<?= $row['Price']; ?>'></td></tr>
-<tr><td class="text-right">Category:</td><td><input class="form-control" type='text' name='Category' value='<?= $row['Category']; ?>'></td></tr>
+<tr><td class="text-right">Title:</td><td><input class="form-control" type='text' name='Title'></td></tr>
+<tr><td class="text-right">Description:</td><td><input class="form-control" type='text' name='Description'></td></tr>
+<tr><td class="text-right">Price:</td><td><input class="form-control" type='text' name='Price'></td></tr>
+<tr><td class="text-right">Category:</td><td><input class="form-control" type='text' name='Category'></td></tr>
 <tr><td colspan="2" class="text-center"><input type='submit' class="btn btn-primary" value='Save' name='action_save'> <input type='reset' class="btn btn-primary" value='Cancel'>
 <input type='hidden' name='p' value='newBook'>
 </td></tr>

@@ -1,22 +1,13 @@
 <h2> My orders</h2>
 <?php
-if(isset($_POST['action_save'])) {
-	setlocale(LC_ALL, 'el_GR.UTF-8');
-	require_once "internal/dbconnect.php";
-	$sql = "SELECT * FROM orders WHERE Customer=?";
-	$stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("i", $_SESSION['ID']);
-	$stmt->execute();
-	$res = $stmt->get_result();
-	print "<ol>";
-	while($row = $res->fetch_assoc()) {
-		print "<li>$row['ID']: $row['Customer'] x $row['Date'] </li>\n";
-	}
-	print "</ol>";
-}
-print "</ol>";
-
+require "../internal/dbconnect.php";
+session_start();
+//if(!isset($_SESSION['is_admin']) || $_SESSION['is_admin']==0) {
+//	die("You are not admin");
+//}
+$stmt = $mysqli->prepare("SELECT * FROM orders WHERE Customer='$_SESSION['username']'");
+$stmt->execute();
+$res = $stmt->get_result();
+$r = $res->fetch_all(MYSQLI_ASSOC);
+print json_encode($r);
 ?>
-<form name="form1" method='POST' id="regForm">
-<input type='submit' class="btn btn-primary" value='List' name='action_save'>
-</form>

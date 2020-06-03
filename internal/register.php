@@ -5,8 +5,8 @@ if(isset($_POST['action_save'])) {
 	require_once "internal/dbconnect.php";
 	if(isset($_POST) & !empty($_POST)){
 		$username  = mysqli_real_escape_string($mysqli, $_POST['uname']);
-		$sql = "SELECT * FROM customer WHERE uname='$username'";
-		$result = mysqli_query($mysqli,$sql);
+		$sql2 = "SELECT * FROM customer WHERE uname='$username'";
+		$result = mysqli_query($mysqli,$sql2);
 		$count = mysqli_num_rows($result);
 		if($count>0){
 			$response = "Name is not available";

@@ -5,18 +5,16 @@ function show_orders() {
 	xmlhttp.open("GET","ajax/showall_orders.php",true);
 	xmlhttp.send();
 }
-	
+
 function show_orders_response() {
 	if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 		document.getElementById("maincontent").innerHTML = xmlhttp.responseText;
 	}
 }
 
-
 function show_customers() {
 	$.ajax('ajax/show_allusers_json.php', { success: show_customers_json} );
 }
-
 
 function show_customers_json(x,y,z) {
 	var o = JSON.parse(x);

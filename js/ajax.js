@@ -11,21 +11,6 @@ function show_orders_response() {
 		document.getElementById("maincontent").innerHTML = xmlhttp.responseText;
 	}
 }
-function showHint(str) {
-	if (str.length == 0) {
-	  document.getElementById("txtHint").innerHTML = "";
-	  return;
-	} else {
-		xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-			  document.getElementById("txtHint").innerHTML = this.responseText;
-			}
-		  };
-		  xmlhttp.open("GET", "ajax/showall_orders.php" + str, true);
-		  xmlhttp.send();
-		}
-	  }
 
 function show_customers() {
 	$.ajax('ajax/show_allusers_json.php', { success: show_customers_json} );

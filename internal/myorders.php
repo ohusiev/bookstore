@@ -1,7 +1,6 @@
 <h2> My orders</h2>
 <?php
 require "../internal/dbconnect.php";
-session_start();
 //if(!isset($_SESSION['is_admin']) || $_SESSION['is_admin']==0) {
 //	die("You are not admin");
 //}

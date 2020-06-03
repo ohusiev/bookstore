@@ -7,14 +7,19 @@
 	$token = $_POST['stripeToken'];
 	$email = $_POST["stripeEmail"];
 
+	$customer = \Stripe\Customer::create([
+		'email' => $email,
+		'source'  => $token,
+	]);
+
 	// Charge the user's card:
-	$charge = \Stripe\Charge::create(array(
+	$charge = \Stripe\Charge::create([
+		"customer" => $customer->id
 		"amount" => $sum,
 		"currency" => "eur",		
-		"source" => $token,
-	));
+	]);
 
 	//send an email
 	//store information to the database
-	echo 'Success! You have been charged €' . ($cart[$sum]);
+	echo 'Success! You have been charged €' . ($sum);
 ?>

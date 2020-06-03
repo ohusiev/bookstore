@@ -43,6 +43,8 @@ if(!is_array($_SESSION['cart'])) {
 		print "<tr><td>Total<td><td>$sum &euro;</td></tr></table>";
 		 
 		if($c>0){
+			//print "<a href='?p=buy_cart' class='btn btn-primary'>Submit order</a>
+			//	<a href='?p=empty_cart' class='btn btn-primary'>Delete  Cart</a>	";
 			echo '			
 			<script
 			  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -50,11 +52,12 @@ if(!is_array($_SESSION['cart'])) {
 			  data-amount="'.$amt.'"
 			  data-currency="eur"			  
 			  data-name=""
+			  data-label="Checkout"
 			  data-description="Widget"
 			  data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
 			  data-locale="auto">
-			</script>			  
-			';
+			</script>				  
+			';											
 		}
 	}
 ?>

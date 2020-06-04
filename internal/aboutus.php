@@ -12,7 +12,7 @@
 <div class="breadcrumb">
         <div class="container">
             <a class="breadcrumb-item" href="index.php?p=start">Home</a>
-            <span class="breadcrumb-item active">Shop Info</span>
+            <span class="breadcrumb-item active">About Us</span>
 </div>
 </div>
 <body>

@@ -1,5 +1,16 @@
-<h2>Registration</h2>
-
+<body>
+<div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="index.php?p=start">Home</a>
+            <span class="breadcrumb-item active">Registration</span>
+</div>
+</div>
+<body>
+<br>
+<h1>Registration</h1>
+<p>Fill in the fields below to create a Biblioo.com account. If you already have an account, please <a href="index.php?p=login">Login</a></p>
+</section>
+<br>
 <?php
 if(isset($_POST['action_save'])) {
 	require_once "internal/dbconnect.php";

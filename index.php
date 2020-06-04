@@ -30,14 +30,15 @@ if( ! isset($_SESSION['is_admin'])) {
 <body>
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Bookstore Template</a>
+      <a href="index.php?p=start"> <img border="0" src="https://i.pinimg.com/originals/ad/ce/76/adce765a4b69040f8056527f2f3df8f8.png" alt="Biblioo_logo_white" width=70>
+        <a class="navbar-brand" href="index.php?p=start">BIBLIOO &nbsp; &nbsp; &nbsp; &nbsp;</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
          <?php
-         require ("internal/topmenu.php");
+         require "internal/topmenu.php";
          ?>
         </div>
       </nav>

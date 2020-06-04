@@ -2,18 +2,18 @@
 <?php
 
 $userid= $mysqli->real_escape_string($_SESSION['userid']);
-$sql = "SELECT * FROM orders WHERE Customer='$userid'";
+$sql = "SELECT orderdetails.Orders, orderdetails.Quantity, orderdetails.Product, orders.oDate, product.Title, product.Price 
+    FROM ((orderdetails LEFT JOIN orders ON orderdetails.Orders=orders.ID)LEFT JOIN product ON orderdetails.Product=product.ID) 
+    WHERE orders.Customer='$userid'";
 $result = $mysqli->query($sql);
-//$row = $result->fetch_assoc();
-//$sql2 = "SELECT * FROM orderdetails WHERE Customer='$userid'"
-//$result2 =$mysqli->query($sql)
     print <<<END
             <table class="table table-striped">
-        <thead><tr><th width="10%">Order ID</th><th>Product</th><th>Date</th></tr></thead><tbody>
+        <thead><tr align="center"><th >Order ID</th><th>Date</th><th>Product ID</th><th>Title</th><th>Quantity</th><th>Price, €</th><th>Total, €</th></tr></thead><tbody>
         END;
 if ($result->num_rows > 0){
 	while ($row = $result->fetch_assoc()){
-        print "<tr><td> $row[ID] </td> <td> $row[ID] </td><td>  $row[oDate] </td><td>  $row[ID] </td></tr>";
+        $tprise = $row['Quantity']*$row['Price'];
+        print "<tr><td align ='center'> $row[Orders] </td> <td align ='center'> $row[oDate] </td><td align ='center'>  $row[Product] </td><td>  $row[Title] </td><td align ='center'>  $row[Quantity] </td><td align ='center'>  $row[Price] </td><td align ='center'><b>$tprise</b></td></tr>";
         }
         print "</tbody></table>";
     }else{

@@ -2,6 +2,15 @@
   
 <head>
 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+    </style>
+
 <h1> Contact us </h1>
 <style>
     
@@ -13,7 +22,7 @@ h1 {
 	margin-top: 30px;
 	width: 500px;
 	color: #F90;
-    text-align: center;
+  text-align: center;
 
 }
 </style>
@@ -21,16 +30,10 @@ h1 {
 
 <style type="text/css" media="screen">
     div.elem-group {
-	margin: 40px 0;
+  margin: 40px 0;
+  text-align:center;
   }
-  
-  label {
-    display: block;
-	font-family: 'Raleway', sans-serif;
-	padding-bottom: 4px;
-    font-size: 1.25em;
-  }
- 
+   
   input, select, textarea {
 	border-radius: 2px;
 	border: 1px solid #ccc;
@@ -42,8 +45,24 @@ h1 {
   }
   
   textarea {
-	height: 250px;
+  height: 250px;
+  
   }
+ 
+  li {
+  color: black;
+
+  
+  }
+ 
+  p {
+  color: white;
+ 
+
+  
+  }
+ 
+
   
   button {
 	height: 50px;
@@ -53,7 +72,7 @@ h1 {
 	font-size: 1.25em;
 	font-family: 'Aleo';
 	border-radius: 4px;
-	cursor: pointer;
+  cursor: pointer;
   }
   
   button:hover {
@@ -64,7 +83,7 @@ h1 {
 </head>
 <style>
 body {
-  background-image: url('http://tagsincorporation.com/wp-content/uploads/2019/02/school-background.jpg');
+  background-image: url('https://i.pinimg.com/564x/c1/59/5c/c1595cbdcc1f24951ca656742f954a74.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
@@ -73,27 +92,41 @@ body {
 
 <form  method='POST'>
   <div class="elem-group">
-    <label for="name">Name</label>
-
-    <input type="text" id="name" name="visitor_name" placeholder="Phillip" pattern=[A-Z\sa-z]{3,20} required>
+    <input type="text" id="name" name="visitor_name" placeholder="Name" pattern=[A-Z\sa-z]{3,20} required>
   </div>
 
   <div class="elem-group">
-    <label for="email">E-mail</label>
-
-    <input type="email" id="email" name="visitor_email" placeholder="phillip@email.com" required>
+    <input type="email" id="email" name="visitor_email" placeholder="@email.com" required>
   </div>
   
 
   <div class="elem-group">
-    <label for="message">Message</label>
-
     <textarea id="message" name="visitor_message" placeholder="Your message" required></textarea>
   </div>
 
+  <div class="elem-group">
   <button type="submit">Send Message</button>
+  </div>
+
 </form>
+<div class="elem-group">
+<ul class="contact-icons">
+ <li><i class="fa fa-map-marker fa-2x"></i>
+   <p>Thessaloniki, 54248, Greece</p>
+  </li>
+  <li>
+    <i class="fa fa-phone fa-2x"></i>
+    <p>+ 30 745 2356896</p>
+   </li>
+   <li>
+     <i class="fa fa-envelope fa-2x"></i>
+     <p>biblioo@gmail.com</p>
+    </li>
+   </ul>
+   </div>                       
 <?php
+
+
 
  
 if($_POST) {
@@ -131,6 +164,5 @@ if($_POST) {
     } else {
         echo '<p>We are sorry but the email did not go through.</p>';
     }
-} 
-
+  }
 ?>

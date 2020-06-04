@@ -8,7 +8,7 @@
 <body>
 <br>
 <h1>Registration</h1>
-<p>Fill in the fields below to create a Biblioo.com account. If you already have an account, please <a href="index.php?p=login">Login</a></p>
+<p>Fill in the fields below to create a Biblioo.com account. If you already have an account, please <a href="index.php?p=login">login here</a></p>
 </section>
 <br>
 <?php

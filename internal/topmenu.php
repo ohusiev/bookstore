@@ -4,7 +4,7 @@
         <a class="nav-link" href="index.php?p=start">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="?p=shopinfo">Shop Info</a>
+        <a class="nav-link" href="?p=aboutus">About Us</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="?p=products">Products</a>

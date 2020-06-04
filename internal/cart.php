@@ -1,8 +1,8 @@
 <?php	
 	require_once "internal/cart_operations.php";	
 
-	if(isset($_POST['pid'])){
-		$pid = $_POST['pid'];
+	if(isset($_REQUEST['pid'])){
+		$pid = $_REQUEST['pid'];
 	}
 
 	if(isset($pid)){
@@ -10,29 +10,27 @@
 		if(!isset($_SESSION['cart'])){			
 			$_SESSION['cart'] = array();
 			$_SESSION['total_items'] = 0;
-			$_SESSION['total_price'] = '0.00';
+			$_SESSION['total_price'] = '0';
 		}
 
 		if(!isset($_SESSION['cart'][$pid])){
 			$_SESSION['cart'][$pid] = 1;
-		} elseif(isset($_POST['cart'])){
+		} elseif(isset($_REQUEST['cart'])){
 			$_SESSION['cart'][$pid]++;
-			unset($_POST);
+			unset($_REQUEST);
 		}
 	}
 
 	//when update button is clicked, change the qty of each product
-	if(isset($_POST['update'])){
+	if(isset($_REQUEST['update'])){
 		foreach($_SESSION['cart'] as $pid =>$qty){
-			if($_POST[$pid] == '0'){
+			if($_REQUEST[$pid] == '0'){
 				unset($_SESSION['cart']["$pid"]);
 			} else {
-				$_SESSION['cart']["$pid"] = $_POST["$pid"];
+				$_SESSION['cart']["$pid"] = $_REQUEST["$pid"];
 			}
 		}
-	}	
-	
-	$title = "Cart";
+	}		
 
 	if(isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
 		$_SESSION['total_price'] = total_price($_SESSION['cart']);

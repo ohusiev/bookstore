@@ -1,75 +1,55 @@
-<?php
-	session_start();
-	$_SESSION['err'] = 1;
-	foreach($_POST as $key => $value){
-		if(trim($value) == ''){
-			$_SESSION['err'] = 0;
-		}
-		break;
-	}
-
-	if($_SESSION['err'] == 0){
-		header("Location: checkout.php");
-	} else {
-		unset($_SESSION['err']);
-	}
-
-
+<?php	
+	require_once "internal/cart_operations.php"; 
+	
 	$_SESSION['ship'] = array();
 	foreach($_POST as $key => $value){
 		if($key != "submit"){
 			$_SESSION['ship'][$key] = $value;
 		}
-	}
-	require_once "./functions/database_functions.php";
-	// print out header here
-	$title = "Purchase";
-	require "./template/header.php";
-	// connect database
-	if(isset($_SESSION['cart']) && (array_count_values($_SESSION['cart']))){
+	}	
+
 ?>
-	<table class="table">
-		<tr>
+    <table class="table">
+		<tr>			
 			<th>Item</th>
 			<th>Price</th>
 	    	<th>Quantity</th>
 	    	<th>Total</th>
 	    </tr>
 	    	<?php
-			    foreach($_SESSION['cart'] as $isbn => $qty){
+			    foreach($_SESSION['cart'] as $pid => $qty){
 					$conn = db_connect();
-					$book = mysqli_fetch_assoc(getBookByIsbn($conn, $isbn));
+					$row = mysqli_fetch_assoc(getproductByID($conn, $pid));
 			?>
-		<tr>
-			<td><?php echo $book['book_title'] . " by " . $book['book_author']; ?></td>
-			<td><?php echo "$" . $book['book_price']; ?></td>
+		<tr>			
+			<td><?php echo $row['Title']; ?></td>
+			<td><?php echo "€" . $row['Price']; ?></td>
 			<td><?php echo $qty; ?></td>
-			<td><?php echo "$" . $qty * $book['book_price']; ?></td>
+			<td><?php echo "€" . $qty * $row['Price']; ?></td>
 		</tr>
 		<?php } ?>
-		<tr>
-			<th>&nbsp;</th>
+		<tr>			
 			<th>&nbsp;</th>
 			<th><?php echo $_SESSION['total_items']; ?></th>
-			<th><?php echo "$" . $_SESSION['total_price']; ?></th>
+			<th><?php echo "€" . $_SESSION['total_price']; ?></th>
 		</tr>
 		<tr>
+			<?php $shippingfee = 20; ?>
 			<td>Shipping</td>
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
-			<td>20.00</td>
+			<td><?php echo "€" . $shippingfee; ?></td>
 		</tr>
 		<tr>
-			<th>Total Including Shipping</th>
+			<th>Total (Including Shipping)</th>
 			<th>&nbsp;</th>
 			<th>&nbsp;</th>
-			<th><?php echo "$" . ($_SESSION['total_price'] + 20); ?></th>
+			<th><?php echo "€" . ($_SESSION['total_price'] + $shippingfee); ?></th>
 		</tr>
 	</table>
-	<form method="post" action="process.php" class="form-horizontal">
-		<?php if(isset($_SESSION['err']) && $_SESSION['err'] == 1){ ?>
-		<p class="text-danger">All fields have to be filled</p>
-		<?php } ?>
+	<br>
+	<h2>Card Details</h2>
+	<form method="post" action="?p=confirm_order" class="form-horizontal">		
         <div class="form-group">
             <label for="card_type" class="col-lg-2 control-label">Type</label>
             <div class="col-lg-10">
@@ -80,29 +60,50 @@
               	</select>
             </div>
         </div>
-        <div class="form-group">
-            <label for="card_number" class="col-lg-2 control-label">Number</label>
+		<div class="form-group">
+            <label for="card_owner" class="col-lg-2 control-label">Cardholder Name</label>
             <div class="col-lg-10">
-              	<input type="text" class="form-control" name="card_number">
+              	<input type="text" class="form-control" name="card_owner" required oninvalid="return required()">
+            </div>
+        <div class="form-group">
+            <label for="card_number" class="col-lg-2 control-label">Card Number</label>
+            <div class="col-lg-10">
+              	<input type="text" class="form-control" name="card_number" maxlength="16" required oninvalid="return required()">
             </div>
         </div>
         <div class="form-group">
-            <label for="card_PID" class="col-lg-2 control-label">PID</label>
+            <label for="card_PID" class="col-lg-2 control-label">CVV</label>
             <div class="col-lg-10">
-              	<input type="text" class="form-control" name="card_PID">
+              	<input type="text" class="form-control" name="card_PID" maxlength="3" required oninvalid="return required()">
             </div>
         </div>
         <div class="form-group">
             <label for="card_expire" class="col-lg-2 control-label">Expiry Date</label>
-            <div class="col-lg-10">
-              	<input type="date" name="card_expire" class="form-control">
-            </div>
+			<div class="col-lg-10">
+			<select>
+                    <option value="01">January</option>
+                    <option value="02">February </option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+            </select>
+            <select>
+                    <option value="21"> 2021</option>
+                    <option value="22"> 2022</option>
+                    <option value="23"> 2023</option>
+                    <option value="24"> 2024</option>
+                    <option value="25"> 2025</option>
+                    <option value="26"> 2026</option>
+            </select>
+			</div>
         </div>
-        <div class="form-group">
-            <label for="card_owner" class="col-lg-2 control-label">Name</label>
-            <div class="col-lg-10">
-              	<input type="text" class="form-control" name="card_owner">
-            </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
@@ -111,11 +112,6 @@
             </div>
         </div>
     </form>
-	<p class="lead">Please press Purchase to confirm your purchase, or Continue Shopping to add or remove items.</p>
 <?php
-	} else {
-		echo "<p class=\"text-warning\">Your cart is empty! Please make sure you add some books in it!</p>";
-	}
 	if(isset($conn)){ mysqli_close($conn); }
-	require_once "./template/footer.php";
 ?>

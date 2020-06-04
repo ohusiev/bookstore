@@ -37,7 +37,7 @@ if( ! isset($_SESSION['is_admin'])) {
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
          <?php
-         require ("internal/topmenu.php");
+         require "internal/topmenu.php";
          ?>
         </div>
       </nav>

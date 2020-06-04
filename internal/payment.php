@@ -1,7 +1,8 @@
 <?php	
-	require_once "internal/cart_operations.php"; 	
-
+	require_once "internal/cart_operations.php";	
+	
 ?>
+	<h2> Order Summary </h2>
     <table class="table">
 		<tr>			
 			<th>Item</th>
@@ -27,8 +28,8 @@
 			<th><?php echo "€" . $_SESSION['total_price']; ?></th>
 		</tr>
 		<tr>
-			<?php $shippingfee = 20; ?>
-			<td>Shipping</td>
+			<?php $shippingfee = 10; ?>
+			<td>Shipping Fee</td>
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
 			<td><?php echo "€" . $shippingfee; ?></td>
@@ -42,7 +43,7 @@
 	</table>
 	<br>
 	<h2>Card Details</h2>
-	<form method="post" action="?p=confirm_order" class="form-horizontal">		
+	<form method="post" action="?p=confirm_payment" class="form-horizontal">		
         <div class="form-group">
             <label for="card_type" class="col-lg-2 control-label">Type</label>
             <div class="col-lg-10">
@@ -94,13 +95,15 @@
                     <option value="24"> 2024</option>
                     <option value="25"> 2025</option>
                     <option value="26"> 2026</option>
+					<option value="27"> 2027</option>
+					<option value="28"> 2028</option>
             </select>
 			</div>
         </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-              	<button type="reset" class="btn btn-default">Cancel</button>
+              	<button type="reset" class="btn btn-default">Clear</button>
               	<button type="submit" class="btn btn-primary">Purchase</button>
             </div>
         </div>

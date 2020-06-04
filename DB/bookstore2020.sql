@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2020 at 03:58 PM
--- Server version: 5.7.27-log
+-- Generation Time: Jun 04, 2020 at 04:51 PM
+-- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bookstore2019`
+-- Database: `bookstore2020`
 --
 
 -- --------------------------------------------------------
@@ -65,20 +65,22 @@ CREATE TABLE `customer` (
   `ID` int(11) NOT NULL,
   `Fname` varchar(100) DEFAULT NULL,
   `Lname` varchar(100) DEFAULT NULL,
+  `email` varchar(200) DEFAULT NULL,
   `Address` varchar(300) DEFAULT NULL,
   `Phone` varchar(100) DEFAULT NULL,
   `uname` varchar(30) DEFAULT NULL,
   `passwd_enc` varchar(42) DEFAULT NULL,
-  `is_admin` tinyint(1) NOT NULL DEFAULT '0'
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`ID`, `Fname`, `Lname`, `Address`, `Phone`, `uname`, `passwd_enc`, `is_admin`) VALUES
-(10, 'John', 'Smith', 'Egnatias 100', '122222222', 'john', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 0),
-(11, 'Admin', 'Administrator', 'Tsimiski 30', '3023101111145', 'admin', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 1);
+INSERT INTO `customer` (`ID`, `Fname`, `Lname`, `email`, `Address`, `Phone`, `uname`, `passwd_enc`, `is_admin`) VALUES
+(10, 'John', 'Smith', NULL, 'Egnatias 100', '122222222', 'john', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 0),
+(11, 'Admin', 'Administrator', NULL, 'Tsimiski 30', '3023101111145', 'admin', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 1),
+(12, 'Hya', 'Ochotorena', 'ho17@hw.ac.uk', 'Thessaloniki, Greece', '+308924738274', 'ho17', '*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9', 0);
 
 -- --------------------------------------------------------
 
@@ -104,7 +106,30 @@ INSERT INTO `orderdetails` (`ID`, `Orders`, `Quantity`, `Product`) VALUES
 (78, 15, 1, 9),
 (79, 18, 1, 13),
 (80, 18, 3, 1),
-(81, 19, 1, 11);
+(81, 19, 1, 11),
+(82, 20, 1, 1),
+(83, 21, 1, 1),
+(84, 22, 1, 7),
+(85, 22, 1, 8),
+(86, 23, 1, 10),
+(87, 14, 1, 8),
+(88, 14, 1, 7),
+(89, 14, 1, 6),
+(100, 47, 1, 8),
+(101, 48, 1, 8),
+(102, 49, 1, 9),
+(103, 50, 1, 9),
+(104, 51, 1, 9),
+(105, 52, 1, 9),
+(106, 52, 2, 8),
+(107, 53, 1, 12),
+(108, 54, 1, 9),
+(109, 55, 1, 9),
+(110, 55, 1, 11),
+(111, 57, 1, 7),
+(112, 58, 1, 1),
+(113, 59, 1, 6),
+(114, 61, 1, 9);
 
 -- --------------------------------------------------------
 
@@ -115,18 +140,44 @@ INSERT INTO `orderdetails` (`ID`, `Orders`, `Quantity`, `Product`) VALUES
 CREATE TABLE `orders` (
   `ID` int(11) NOT NULL,
   `Customer` int(11) DEFAULT NULL,
-  `oDate` date DEFAULT NULL
+  `oDate` date DEFAULT current_timestamp(),
+  `Amount` int(11) DEFAULT NULL,
+  `payment_mode` varchar(20) DEFAULT NULL,
+  `ship_name` varchar(200) DEFAULT NULL,
+  `ship_address` varchar(200) DEFAULT NULL,
+  `ship_city` varchar(200) DEFAULT NULL,
+  `ship_zipcode` varchar(20) DEFAULT NULL,
+  `ship_country` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`ID`, `Customer`, `oDate`) VALUES
-(14, 10, '2011-12-21'),
-(15, 11, '2011-12-21'),
-(18, 10, '2020-05-22'),
-(19, 10, '2020-05-22');
+INSERT INTO `orders` (`ID`, `Customer`, `oDate`, `Amount`, `payment_mode`, `ship_name`, `ship_address`, `ship_city`, `ship_zipcode`, `ship_country`) VALUES
+(14, 10, '2011-12-21', 0, NULL, '0', '0', '0', '0', '0'),
+(15, 11, '2011-12-21', 0, NULL, '0', '0', '0', '0', '0'),
+(18, 10, '2020-05-22', 0, NULL, '0', '0', '0', '0', '0'),
+(19, 10, '2020-05-22', 0, NULL, '0', '0', '0', '0', '0'),
+(20, 10, '2020-05-29', 0, NULL, '0', '0', '0', '0', '0'),
+(21, 10, '2020-05-29', 0, NULL, '0', '0', '0', '0', '0'),
+(22, 10, '2020-06-02', 0, NULL, '0', '0', '0', '0', '0'),
+(23, 10, '2020-06-02', 0, NULL, '0', '0', '0', '0', '0'),
+(47, 10, '2020-06-04', 45, NULL, 'Name', 'Address', 'City', 'Zip', 'Country'),
+(48, 10, '2020-06-04', 35, NULL, 'Name', 'Address', 'City', 'Zip', 'Country'),
+(49, 10, '2020-06-04', 40, NULL, NULL, NULL, NULL, NULL, NULL),
+(50, 10, '2020-06-04', 40, '2', 'Name', 'Address', 'City', 'Zip', 'Country'),
+(51, 10, '2020-06-04', 40, '1', 'Name', 'Address', 'City', 'Zip', 'Country'),
+(52, 10, '2020-06-04', 90, '2', 'Name', 'Address', 'City', 'Zip', 'Country'),
+(53, 10, '2020-06-04', 70, '2', 'Test', 'Test', 'Test', 'Test', 'Test'),
+(54, 12, '2020-06-04', 40, '1', 'Test', 'test', 'test', 'test', 'test'),
+(55, 12, '2020-06-04', 90, '2', 'Name', 'Address', 'City', 'Zip', 'Country'),
+(56, 12, '2020-06-04', 90, NULL, NULL, NULL, NULL, NULL, NULL),
+(57, 12, '2020-06-04', 35, '2', 'jane doe', 'Address', 'City', 'Zip', 'Country'),
+(58, 12, '2020-06-04', 25, '2', 'Name', 'Address', 'City', 'Zip', 'Country'),
+(59, 12, '2020-06-04', 45, '2', 'jane doe', 'Address', 'City', 'Zip', 'Country'),
+(60, 12, '2020-06-04', 45, NULL, NULL, NULL, NULL, NULL, NULL),
+(61, 12, '2020-06-04', 40, '2', 'jane doe', 'Address', 'City', 'Zip', 'Country');
 
 -- --------------------------------------------------------
 
@@ -172,7 +223,7 @@ INSERT INTO `product` (`ID`, `Title`, `Description`, `Price`, `Category`) VALUES
 CREATE TABLE `wishlist` (
   `customerID` int(11) NOT NULL,
   `productID` int(11) NOT NULL,
-  `dateadded` datetime DEFAULT CURRENT_TIMESTAMP
+  `dateadded` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -241,25 +292,25 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `orderdetails`
 --
 ALTER TABLE `orderdetails`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables

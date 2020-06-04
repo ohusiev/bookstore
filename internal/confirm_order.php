@@ -8,7 +8,7 @@
 	
     $sql = "INSERT INTO orders (Customer, Amount, payment_mode, ship_name, ship_address, ship_city, ship_zipcode, ship_country)  VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 	$stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("iissssss", $_SESSION['userid'], $amount, $payment_mode, $_POST['ship_name'], $_POST['ship_address'], $_POST['ship_city'], $_POST['ship_zipcode'], $_POST['ship_country']);
+	$stmt->bind_param("iissssis", $_SESSION['userid'], $amount, $payment_mode, $_POST['ship_name'], $_POST['ship_address'], $_POST['ship_city'], $_POST['ship_zipcode'], $_POST['ship_country']);
     $r = $stmt->execute();
     if(! $r) {
 		print "Application Error: ". $mysqli->error;

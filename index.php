@@ -69,8 +69,7 @@ if( ! isset($_SESSION['is_admin'])) {
          <li class="nav-item">
             <a class="nav-link " href="?p=book_delete">Delete Book</a>
          </li>
-          </ul>
-          
+          </ul>        
 END;
 	}
 	if($_SESSION['username']!='?') {

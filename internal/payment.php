@@ -1,12 +1,5 @@
 <?php	
-	require_once "internal/cart_operations.php"; 
-	
-	$_SESSION['ship'] = array();
-	foreach($_POST as $key => $value){
-		if($key != "submit"){
-			$_SESSION['ship'][$key] = $value;
-		}
-	}	
+	require_once "internal/cart_operations.php"; 	
 
 ?>
     <table class="table">

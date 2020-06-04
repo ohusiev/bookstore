@@ -1,3 +1,12 @@
+<style>
+.cities {
+  background-color: lightgray;
+  color: black;
+  margin: 20px;
+  padding: 20px;
+}
+</style>
+
 <div class="breadcrumb">
         <div class="container">
             <a class="breadcrumb-item" href="index.php?p=start">Home</a>
@@ -11,16 +20,15 @@
       <img class="imgr borderedbox inspace-5" src="../images/demo/imgr.gif" alt="">
       <p>This blog was developed and is contributed to by the MIT CSail Research department, and its purpose is to provide readers with a wide range of computer science-oriented topics such as the Semantic Web and digital intelligence collection. This blog may be a good option for students who are interested in getting a more thorough look into niche areas of computer science that may only be given a cursory look in their standard curricula</p>
       <br>
-      <br>
-      <br>
+      
 <section>
 
-      <div id="main" class="site-main">
 
+<div id="main" class="site-main">
 <div id="main-content" class="main-content">
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
-	
+    <div class="cities">
 	<header class="entry-header">		
 		<h1 class="entry-title">Algorithmic economics postdoc position at Microsoft Research, NYC</h1>
 		<div class="entry-meta">
@@ -40,7 +48,8 @@
         <li><a href="http://research.microsoft.com/en-us/groups/algorithmic-economics/">Algorithmic economics at MSR-NYC</a></li>
         <li><a href="http://research.microsoft.com/en-us/labs/newyork/people/bios.aspx">People at MSR-NYC</a></li>
         </ul>
-	      </div><!-- .entry-content -->
+	      </div>
+        </div><!-- .entry-content -->
         <br>
         <br>
         <br>
@@ -48,7 +57,7 @@
         <div id="main-content" class="main-content">
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
-
+    <div class="cities">
     <header class="entry-header">		
 		<h1 class="entry-title">Pedagogy of Programming&nbsp;Tools</h1>
 		<div class="entry-meta">
@@ -73,6 +82,7 @@
             <p>In our latest Greenfoot Live video, my colleague Hamza and I sat down for half an hour to do some Greenfoot programming and talk about pedagogical strategies in Greenfoot: ways you can use it to teach, and what pedagogical approaches we have in mind when designing the tool.  I&#8217;m quite pleased with how it turned out, and I think it&#8217;s worth watching:</p>
             <div class="jetpack-video-wrapper"><span class="embed-youtube" style="text-align:center; display: block;"><iframe class='youtube-player' width='560' height='315' src='https://www.youtube.com/embed/RKNJ5I3voPg?version=3&#038;rel=1&#038;fs=1&#038;autohide=2&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;wmode=transparent' allowfullscreen='true' style='border:0;'></iframe></span></div>
             <p>Whether you agree with our particular pedagogical philosophies or not, next time you choose a programming language and tool, be aware of its impact on what teaching approaches and activities it can support well, and which activities it will make hard for you to engage in.</p>
+      </div>
       </div><!-- .entry-content -->
         <br>
         <br>

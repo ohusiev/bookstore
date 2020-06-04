@@ -1,3 +1,13 @@
+<style>
+.borders-intro { box-sizing: border-box; margin-bottom: 41px; !important; padding: 0 40px; }
+.borders-intro span.reg { font-size: 70%; position: relative; top: -4px; }
+.cities {
+  background-color: lightgray;
+  color: black;
+  margin: 20px;
+  padding: 20px;
+}
+</style>
 <body>
 <div class="breadcrumb">
         <div class="container">
@@ -20,6 +30,8 @@
       <br>
       <br>
       <br>
+      </div>
+      <div class="cities">
       <p>Biblioo Webstore was launched in September 2014 to take care of your literary needs and more at anytime, anywhere! Place your online orders with us for publications and non-book items (mostly designed and manufactured in Japan) when you can’t get enough at our physical retail bookstores.
 Biblioo Privilege Card (BPC) membership programme that was launched in April 2012 allows members to enjoy regular 10% off their off-and-online purchase with Biblioo. </p>
 <p>A true benefit for book lovers to make their purchase with us.
@@ -49,10 +61,11 @@ The employee must provide clear directions to the actors and actresses and they 
 Actors and actresses are well cared for so that they can perform their very best before the audience.</p>
 
 <p>Updated as at September 2019.</p>
-      <br>
-      <br>
-      <br>
 </section>
+      <br>
+      <br>
+      <br>
+
 
 
 <?php

@@ -67,7 +67,7 @@
 		   <a href='?p=empty_cart' class='btn btn-primary'>Empty Cart</a>	
 	</form>
 	<br/><br/>
-	<a href="?p=checkout" class="btn btn-primary">Go To Checkout</a> 
+	<a href="?p=checkout" class="btn btn-primary">Checkout</a> 
 	<a href="?p=products" class="btn btn-primary">Continue Shopping</a>	
 <?php
 	} else {

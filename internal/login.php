@@ -1,8 +1,19 @@
+<br>
+<br>
+<br>
+<br>
+<br>
 <form method="post" action="index.php">
-Username: <input name="username"/>
+<input name="username" placeholder="username"/>
 <br/>
-Password: <input name="pass" type="password"/>
-<br/>
+<input name="pass" type="password" placeholder="password"/>
+<br>
+<p class="message">Not registered? <a href="index.php?p=register">Create an account</a></p>
 <input type="submit" value="LOGIN"/>
 <input name="p" value="do_login" type="hidden">
 </form>
+
+<br>
+<br>
+<br>
+

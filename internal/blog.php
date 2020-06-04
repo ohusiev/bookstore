@@ -1,15 +1,11 @@
 <div class="breadcrumb">
         <div class="container">
-            <a class="breadcrumb-item" href="http://localhost/bookstore/index.php?p=start">Home</a>
+            <a class="breadcrumb-item" href="index.php?p=start">Home</a>
             <span class="breadcrumb-item active">Blog</span>
         </div>
     </div>
-    <section class="static about-sec">
-    <div class="wrapper row3">
-  <main class="hoc container clear"> 
-    <!-- main body -->
-    <!-- ################################################################################################ -->
-    <div class="content"> 
+    
+
       <!-- ################################################################################################ -->
       <h1>Welcome to our blog!</h1>
       <img class="imgr borderedbox inspace-5" src="../images/demo/imgr.gif" alt="">
@@ -17,6 +13,7 @@
       <br>
       <br>
       <br>
+<section>
 
       <div id="main" class="site-main">
 
@@ -116,7 +113,7 @@
           <br>
         <br>
         <br>
-          
+</section>          
         </ul>
         <h2>Write A Comment</h2>
         <form action="#" method="post">
@@ -145,4 +142,5 @@
       </div>
       <!-- ################################################################################################ -->
     </div>
-   
+
+    

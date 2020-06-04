@@ -51,7 +51,7 @@ if( ! isset($_SESSION['is_admin'])) {
 <?php
 	require "internal/menuleft.php";
 	if($_SESSION['is_admin']) {
-		print "<h3>Admin MENU</h3>";
+		print "<h5>&nbsp;&nbsp;&nbsp;Admin Menu</h5>";
 		print <<<END
 <ul class="nav nav-pills flex-column">
             <li class="nav-item">
@@ -74,7 +74,7 @@ if( ! isset($_SESSION['is_admin'])) {
 END;
 	}
 	if($_SESSION['username']!='?') {
-		print "<h3>User MENU</h3>";
+		print "<h5>&nbsp;&nbsp;&nbsp;User Menu</h5>";
 		print <<<END
 <ul class="nav nav-pills flex-column">
             <li class="nav-item">

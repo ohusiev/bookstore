@@ -1,15 +1,11 @@
-<h2> My orders</h2>
 <?php
 
 $userid= $mysqli->real_escape_string($_SESSION['userid']);
 $sql = "SELECT * FROM orders WHERE Customer='$userid'";
 $result = $mysqli->query($sql);
-//$row = $result->fetch_assoc();
-//$sql2 = "SELECT * FROM orderdetails WHERE Customer='$userid'"
-//$result2 =$mysqli->query($sql)
     print <<<END
             <table class="table table-striped">
-        <thead><tr><th width="10%">Order ID</th><th>Product</th><th>Date</th></tr></thead><tbody>
+        <thead><tr><th width="10%">ID</th><th>Product</th><th>Date</th><th>Price</th></tr></thead><tbody>
         END;
 if ($result->num_rows > 0){
 	while ($row = $result->fetch_assoc()){

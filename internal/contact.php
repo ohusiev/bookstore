@@ -112,7 +112,7 @@ body {
    </li>
    <li>
      <i class="fa fa-envelope fa-2x"></i>
-     <p>biblioo@gmail.com</p>
+     <p><a href="mailto:biblioo@gmail.com">biblioo@gmail.com</a></p>
     </li>
    </ul>
    </div>                       

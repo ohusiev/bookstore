@@ -6,9 +6,6 @@ $sql = "SELECT orderdetails.Orders, orderdetails.Quantity, orderdetails.Product,
     FROM ((orderdetails LEFT JOIN orders ON orderdetails.Orders=orders.ID)LEFT JOIN product ON orderdetails.Product=product.ID) 
     WHERE orders.Customer='$userid'";
 $result = $mysqli->query($sql);
-//$row = $result->fetch_assoc();
-//$sql2 = "SELECT * FROM orderdetails WHERE Customer='$userid'"
-//$result2 =$mysqli->query($sql)
     print <<<END
             <table class="table table-striped">
         <thead><tr align="center"><th >Order ID</th><th>Date</th><th>Product ID</th><th>Title</th><th>Quantity</th><th>Price, €</tr></thead><tbody>

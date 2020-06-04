@@ -6,14 +6,7 @@
 <style>
     
 h1 {
-	font-weight: normal;
-	font-size: 4em;
-	font-family: 'Raleway', sans-serif;
-	margin: 0 auto;
-	margin-top: 30px;
-	width: 500px;
 	color: #F90;
-    text-align: center;
 
 }
 </style>
@@ -26,7 +19,6 @@ h1 {
   
   label {
     display: block;
-	font-family: 'Raleway', sans-serif;
 	padding-bottom: 4px;
     font-size: 1.25em;
   }
@@ -36,7 +28,6 @@ h1 {
 	border: 1px solid #ccc;
 	box-sizing: border-box;
 	font-size: 1.25em;
-	font-family: 'Aleo';
 	width: 500px;
     padding: 8px;
   }
@@ -47,12 +38,9 @@ h1 {
   
   button {
 	height: 50px;
-	background: green;
+	background: #F90;
 	color: white;
-	border: 2px solid darkgreen;
 	font-size: 1.25em;
-	font-family: 'Aleo';
-	border-radius: 4px;
 	cursor: pointer;
   }
   
@@ -64,7 +52,7 @@ h1 {
 </head>
 <style>
 body {
-  background-image: url('http://tagsincorporation.com/wp-content/uploads/2019/02/school-background.jpg');
+  background-image: url('https://i.pinimg.com/564x/c1/59/5c/c1595cbdcc1f24951ca656742f954a74.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
@@ -92,6 +80,8 @@ body {
   </div>
 
   <button type="submit">Send Message</button>
+  <br>
+  <br>
 </form>
 <?php
 

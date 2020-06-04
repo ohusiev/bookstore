@@ -31,7 +31,7 @@ if(isset($_POST['action_save'])) {
 <tr><td class="text-right">First Name:</td><td><input class="form-control" type='text' name='Fname' required></td></tr>
 <tr><td class="text-right">Last Name:</td><td><input class="form-control" type='text' name='Lname' required></td></tr>
 <tr><td class="text-right">Email:</td><td><input class="form-control" type='text' name='email' required></td></tr>
-<tr><td class="text-right">User Name:</td><td><input class="form-control" type='text' name='uname' id='uname' onkeyup="javascript:show_uname(this.value)" maxlength="15"required>
+<tr><td class="text-right">User Name:</td><td><input class="form-control" type='text' name='uname' id='uname'  maxlength="15" required>
 <br/><span id='check' style="color:red;"></span></td></tr>
 <tr><td class="text-right">Password:</td><td><input class="form-control" type='password' name='pass' required oninvalid="return required()"></td></tr>
 <tr><td class="text-right">Repeat Password:</td><td><input class="form-control" type='password' name='repass'required oninvalid="return required()"></td></tr>

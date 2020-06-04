@@ -2,11 +2,21 @@
   
 <head>
 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+    </style>
+
 <h1> Contact us </h1>
 <style>
     
 h1 {
 	color: #F90;
+  text-align: center;
 
 }
 </style>
@@ -14,15 +24,10 @@ h1 {
 
 <style type="text/css" media="screen">
     div.elem-group {
-	margin: 40px 0;
+  margin: 40px 0;
+  text-align:center;
   }
-  
-  label {
-    display: block;
-	padding-bottom: 4px;
-    font-size: 1.25em;
-  }
- 
+   
   input, select, textarea {
 	border-radius: 2px;
 	border: 1px solid #ccc;
@@ -33,15 +38,33 @@ h1 {
   }
   
   textarea {
-	height: 250px;
+  height: 250px;
+  
   }
+ 
+  li {
+  color: black;
+
+  
+  }
+ 
+  p {
+  color: white;
+ 
+
+  
+  }
+ 
+
   
   button {
 	height: 50px;
 	background: #F90;
 	color: white;
 	font-size: 1.25em;
-	cursor: pointer;
+	font-family: 'Aleo';
+	border-radius: 4px;
+  cursor: pointer;
   }
   
   button:hover {
@@ -61,29 +84,41 @@ body {
 
 <form  method='POST'>
   <div class="elem-group">
-    <label for="name">Name</label>
-
-    <input type="text" id="name" name="visitor_name" placeholder="Phillip" pattern=[A-Z\sa-z]{3,20} required>
+    <input type="text" id="name" name="visitor_name" placeholder="Name" pattern=[A-Z\sa-z]{3,20} required>
   </div>
 
   <div class="elem-group">
-    <label for="email">E-mail</label>
-
-    <input type="email" id="email" name="visitor_email" placeholder="phillip@email.com" required>
+    <input type="email" id="email" name="visitor_email" placeholder="@email.com" required>
   </div>
   
 
   <div class="elem-group">
-    <label for="message">Message</label>
-
     <textarea id="message" name="visitor_message" placeholder="Your message" required></textarea>
   </div>
 
+  <div class="elem-group">
   <button type="submit">Send Message</button>
-  <br>
-  <br>
+  </div>
+
 </form>
+<div class="elem-group">
+<ul class="contact-icons">
+ <li><i class="fa fa-map-marker fa-2x"></i>
+   <p>Thessaloniki, 54248, Greece</p>
+  </li>
+  <li>
+    <i class="fa fa-phone fa-2x"></i>
+    <p>+ 30 745 2356896</p>
+   </li>
+   <li>
+     <i class="fa fa-envelope fa-2x"></i>
+     <p>biblioo@gmail.com</p>
+    </li>
+   </ul>
+   </div>                       
 <?php
+
+
 
  
 if($_POST) {
@@ -121,6 +156,5 @@ if($_POST) {
     } else {
         echo '<p>We are sorry but the email did not go through.</p>';
     }
-} 
-
+  }
 ?>

@@ -14,7 +14,7 @@
 		if(!$result){
 			echo "Can't retrieve data " . mysqli_error($conn);
 			exit;
-		}
+		}		
 		return $result;
 	}
 

@@ -18,7 +18,7 @@ if( ! isset($_SESSION['is_admin'])) {
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Bookstore Template</title>
+    <title>Biblioo Webstore</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -99,7 +99,7 @@ if( ! isset($_REQUEST['p'])) {
 }
 $p = $_REQUEST['p'];
 // list of the permited pages
-$pages = array('blog','register','start','shopinfo','login','do_login','after_login','logout','myinfo','contact','products','cart','catinfo','productinfo','add_cart','empty_cart','buy_cart','delete_item','newBook','Book_edit','book_delete','checkout','payment','stripepayment','confirm_order');
+$pages = array('blog','register','start','shopinfo','login','do_login','after_login','logout','myinfo','contact','products','cart','catinfo','productinfo','add_cart','empty_cart','buy_cart','delete_item','newBook','Book_edit','book_delete','checkout','payment','confirm_order', 'confirm_payment');
 
 $ok=false;
 foreach($pages as $pp) {

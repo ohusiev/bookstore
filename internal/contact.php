@@ -15,12 +15,6 @@
 <style>
     
 h1 {
-	font-weight: normal;
-	font-size: 4em;
-	font-family: 'Raleway', sans-serif;
-	margin: 0 auto;
-	margin-top: 30px;
-	width: 500px;
 	color: #F90;
   text-align: center;
 
@@ -39,7 +33,6 @@ h1 {
 	border: 1px solid #ccc;
 	box-sizing: border-box;
 	font-size: 1.25em;
-	font-family: 'Aleo';
 	width: 500px;
     padding: 8px;
   }
@@ -66,9 +59,8 @@ h1 {
   
   button {
 	height: 50px;
-	background: green;
+	background: #F90;
 	color: white;
-	border: 2px solid darkgreen;
 	font-size: 1.25em;
 	font-family: 'Aleo';
 	border-radius: 4px;

@@ -3,6 +3,7 @@
   
     if(isset ($_SESSION['userid'])) {
 ?>
+	<h2> Order Summary </h2>
 	<table class="table">
 		<tr>			
 			<th>Item</th>
@@ -43,6 +44,7 @@
 	</table>
 	<br>
 	<h2>Shipping Address</h2>
+	
 	<form method='POST' action="?p=confirm_order" class="form-horizontal">		
 	<table class="table table-striped">
 	<tr><td class="text-right">Payment Mode:</td><td>
@@ -54,7 +56,7 @@
 	<tr><td class="text-right">Name:</td><td><input class="form-control" type='text' name='ship_name' required oninvalid="return required()"></td></tr>
 	<tr><td class="text-right">Address:</td><td><input class="form-control" type='text' name='ship_address' required oninvalid="return required()"></td></tr>
 	<tr><td class="text-right">City:</td><td><input class="form-control" type='text' name='ship_city' required oninvalid="return required()"></td></tr>
-	<tr><td class="text-right">Zip Code:</td><td><input class="form-control" type='text' name='ship_zipcode'></textarea></td></tr>
+	<tr><td class="text-right">Zip Code:</td><td><input class="form-control" type='text' name='ship_zipcode'></td></tr>
 	<tr><td class="text-right">Country:</td><td><input class="form-control" type='text' name='ship_country' required oninvalid="return required()"></td></tr>
 	<tr><td colspan="2" colspan="2" class="text-center">
 	<input type="submit" name="submit" value="Confirm your Order" class="btn btn-primary">

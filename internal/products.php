@@ -35,6 +35,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="item">
+                        <img src="https://i.pinimg.com/originals/34/17/7f/34177fb22e23b10d8bea2059d532119d.png" alt="img" height="150">
                             <h3> <br> Databases </h3>
                             <h6><a href="http://localhost/bookstore/index.php?p=catinfo&catid=3">click here</a></h6>
                             <div class="hover">
@@ -47,6 +48,7 @@
                     
                     <div class="col-lg-3 col-md-6">
                         <div class="item">
+                        <img src="https://i.pinimg.com/originals/d0/d6/7a/d0d67a2c71e1f79947dabf7845d7dfa3.png" alt="img" height="150">
                               <h3> <br> Network </h3>
                             <h6><a href="http://localhost/bookstore/index.php?p=catinfo&catid=4">click here</a></h6>
                             <div class="hover">
@@ -60,6 +62,7 @@
                     
                     <div class="col-lg-3 col-md-6">
                         <div class="item">
+                        <img src="https://i.pinimg.com/originals/eb/a8/4e/eba84e81b2e1122593f2b8f0b2fc251c.png" alt="img" height="150">
                              <h3> Operating System </h3>
                             <h6><a href="http://localhost/bookstore/index.php?p=catinfo&catid=2">click here</a></h6>
                             <div class="hover">
@@ -71,6 +74,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="item">
+                        <img src="https://i.pinimg.com/originals/d6/c8/47/d6c847420699d05abbbd10d4ac8e4986.png" alt="img" height="150">
                               <h3> Programming Language </h3>
                             <h6><a href="http://localhost/bookstore/index.php?p=catinfo&catid=1">click here</a></h6>
                             <div class="hover">

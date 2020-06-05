@@ -7,11 +7,11 @@
   margin: 20px;
   padding: 20px;
 }
+{box-sizing: border-box;}
+
 </style><br>
-<br>
-<br>
-<br>
 <br><div class="cities">
+    <h1>Login</h1>
 <form method="post" action="index.php">
 <input name="username" placeholder="username"/>
 <br/>

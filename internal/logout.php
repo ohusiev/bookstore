@@ -7,3 +7,5 @@ if(isset($_SESSION['userid'])){
     unset($_SESSION['userid']);
 }
 ?>
+<br>
+<p><a href="index.php?p=login">Login</a> again</p>

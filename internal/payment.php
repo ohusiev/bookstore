@@ -2,6 +2,7 @@
 	require_once "internal/cart_operations.php";	
 	
 ?>
+	 
 	<h2> Order Summary </h2>
     <table class="table">
 		<tr>			
@@ -41,6 +42,7 @@
 			<th><?php echo "€" . ($_SESSION['total_price'] + $shippingfee); ?></th>
 		</tr>
 	</table>
+	
 	<br>
 	<h2>Card Details</h2>
 	<form method="post" action="?p=confirm_payment" class="form-horizontal">		
@@ -68,13 +70,13 @@
         <div class="form-group">
             <label for="card_PID" class="col-lg-2 control-label">CVV</label>
             <div class="col-lg-10">
-              	<input type="text" class="form-control" name="card_PID" maxlength="3" required oninvalid="return required()">
+              	<input type="text" class="form-control" name="card_cvv" maxlength="3" required oninvalid="return required()">
             </div>
         </div>
         <div class="form-group">
             <label for="card_expire" class="col-lg-2 control-label">Expiry Date</label>
 			<div class="col-lg-10">
-			<select>
+			<select name="card_month">
                     <option value="01">January</option>
                     <option value="02">February </option>
                     <option value="03">March</option>
@@ -88,7 +90,7 @@
                     <option value="11">November</option>
                     <option value="12">December</option>
             </select>
-            <select>
+            <select name="card_year">
                     <option value="21"> 2021</option>
                     <option value="22"> 2022</option>
                     <option value="23"> 2023</option>
@@ -108,6 +110,5 @@
             </div>
         </div>
     </form>
-<?php
-	if(isset($conn)){ mysqli_close($conn); }
+<?php	
 ?>

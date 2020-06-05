@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2020 at 04:51 PM
+-- Generation Time: Jun 05, 2020 at 09:12 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `bookstore2020`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `carddetails`
+--
+
+CREATE TABLE `carddetails` (
+  `ID` int(11) NOT NULL,
+  `Orders` int(11) DEFAULT NULL,
+  `card_owner` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `card_number` int(16) DEFAULT NULL,
+  `card_cvv` int(3) DEFAULT NULL,
+  `card_expiry` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `carddetails`
+--
+
+INSERT INTO `carddetails` (`ID`, `Orders`, `card_owner`, `card_number`, `card_cvv`, `card_expiry`) VALUES
+(1, 14, 'Test', 2147483647, 652, '21/01');
 
 -- --------------------------------------------------------
 
@@ -78,9 +100,12 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`ID`, `Fname`, `Lname`, `email`, `Address`, `Phone`, `uname`, `passwd_enc`, `is_admin`) VALUES
-(10, 'John', 'Smith', NULL, 'Egnatias 100', '122222222', 'john', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 0),
-(11, 'Admin', 'Administrator', NULL, 'Tsimiski 30', '3023101111145', 'admin', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 1),
-(12, 'Hya', 'Ochotorena', 'ho17@hw.ac.uk', 'Thessaloniki, Greece', '+308924738274', 'ho17', '*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9', 0);
+(10, 'John', 'Smith', 'john@gmail.com', 'Egnatias 102', '122222222', 'john', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 0),
+(11, 'Admin', 'Administrator', 'admin@admin.com', 'Tsimiski 30', '3023101111145', 'admin', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 1),
+(12, 'Hya', 'Ochotorena', 'ho17@hw.ac.uk', 'Thessaloniki, Greece', '+308924738274', 'ho17', '*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9', 0),
+(13, 'jane', 'doe', 'janedoe@test.com', 'Address', '+308924738274', 'jane', '*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9', 0),
+(14, 'First', 'Emperor', 'firstemperor@test.com', 'Empire State Building', '+308924738274', 'first', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 0),
+(15, 'Paulo', 'Coelho', 'paulo@gmail.com', 'Brazil', '+308924738274', 'paulo', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 0);
 
 -- --------------------------------------------------------
 
@@ -129,7 +154,34 @@ INSERT INTO `orderdetails` (`ID`, `Orders`, `Quantity`, `Product`) VALUES
 (111, 57, 1, 7),
 (112, 58, 1, 1),
 (113, 59, 1, 6),
-(114, 61, 1, 9);
+(114, 61, 1, 9),
+(115, 62, 1, 11),
+(117, 64, 1, 11),
+(118, 65, 1, 10),
+(119, 66, 1, 14),
+(120, 67, 1, 1),
+(121, 68, 2, 1),
+(122, 69, 1, 3),
+(123, 70, 1, 7),
+(124, 71, 1, 10),
+(125, 72, 1, 11),
+(126, 73, 1, 10),
+(127, 74, 1, 10),
+(128, 74, 1, 12),
+(129, 77, 1, 10),
+(130, 79, 1, 12),
+(131, 80, 1, 9),
+(132, 81, 1, 9),
+(133, 82, 1, 9),
+(134, 82, 1, 11),
+(135, 83, 1, 9),
+(136, 83, 1, 11),
+(137, 84, 1, 9),
+(138, 84, 1, 11),
+(139, 85, 1, 12),
+(140, 86, 1, 12),
+(141, 87, 1, 12),
+(142, 88, 1, 12);
 
 -- --------------------------------------------------------
 
@@ -172,12 +224,33 @@ INSERT INTO `orders` (`ID`, `Customer`, `oDate`, `Amount`, `payment_mode`, `ship
 (53, 10, '2020-06-04', 70, '2', 'Test', 'Test', 'Test', 'Test', 'Test'),
 (54, 12, '2020-06-04', 40, '1', 'Test', 'test', 'test', 'test', 'test'),
 (55, 12, '2020-06-04', 90, '2', 'Name', 'Address', 'City', 'Zip', 'Country'),
-(56, 12, '2020-06-04', 90, NULL, NULL, NULL, NULL, NULL, NULL),
 (57, 12, '2020-06-04', 35, '2', 'jane doe', 'Address', 'City', 'Zip', 'Country'),
 (58, 12, '2020-06-04', 25, '2', 'Name', 'Address', 'City', 'Zip', 'Country'),
 (59, 12, '2020-06-04', 45, '2', 'jane doe', 'Address', 'City', 'Zip', 'Country'),
-(60, 12, '2020-06-04', 45, NULL, NULL, NULL, NULL, NULL, NULL),
-(61, 12, '2020-06-04', 40, '2', 'jane doe', 'Address', 'City', 'Zip', 'Country');
+(61, 12, '2020-06-04', 40, '2', 'jane doe', 'Address', 'City', 'Zip', 'Country'),
+(62, 11, '2020-06-04', 60, '2', 'jane doe', 'Address', 'City', 'Zip', 'Country'),
+(64, 11, '2020-06-04', 60, '2', 'jane doe', 'Address', 'City', 'Zip', 'Country'),
+(65, 11, '2020-06-04', 60, '2', 'Name', 'Address', 'City', 'Zip', 'Country'),
+(66, 11, '2020-06-04', 45, '2', 'Test', 'test', 'test', 'test', 'test'),
+(67, 11, '2020-06-04', 25, '2', 'Paulo Coelho', 'Address', 'City', 'Zip', 'Country'),
+(68, 10, '2020-06-04', 40, '2', 'Paulo Coelho', 'Address', 'City', 'Zip', 'Country'),
+(69, 10, '2020-06-04', 45, '2', 'Jane Smith', 'Address', 'City', 'Zip', 'Country'),
+(70, 10, '2020-06-04', 35, '2', 'Paulo Coelho', 'Address', 'City', 'Zip', 'Country'),
+(71, 10, '2020-06-04', 60, '2', 'Jane Smith', 'Address', 'City', 'Zip', 'Country'),
+(72, 10, '2020-06-04', 60, '2', 'Jon Snow', 'Winterfell', 'North', '1234', 'Westeros'),
+(73, 11, '2020-06-05', 60, '1', 'Jane Smith', 'Address', 'City', 'Zip', 'Country'),
+(74, 11, '2020-06-05', 120, '1', 'Jon Snow', 'Winterfell', 'North', '1234', 'Westeros'),
+(77, 11, '2020-06-05', 60, '1', 'Jane Smith', 'Address', 'City', 'Zip', 'Country'),
+(79, 10, '2020-06-05', 70, '2', 'Paulo Coelho', 'Address', 'City', 'Zip', 'Country'),
+(80, 10, '2020-06-05', 40, '1', 'Jane Smith', 'Address', 'City', 'Zip', 'Country'),
+(81, 10, '2020-06-05', 40, '1', 'Jane Smith', 'Address', 'City', 'Zip', 'Country'),
+(82, 10, '2020-06-05', 90, '1', 'Jane Smith', 'Address', 'City', 'Zip', 'Country'),
+(83, 10, '2020-06-05', 90, '1', 'Jane Smith', 'Address', 'City', 'Zip', 'Country'),
+(84, 10, '2020-06-05', 90, '1', 'Jane Smith', 'Address', 'City', 'Zip', 'Country'),
+(85, 10, '2020-06-05', 70, '1', 'John Smith', 'Address', 'City', 'Zip', 'Country'),
+(86, 10, '2020-06-05', 70, '1', 'John Smith', 'Address', 'City', 'Zip', 'Country'),
+(87, 10, '2020-06-05', 70, '1', 'Paulo Coelho', 'Address', 'City', 'Zip', 'Country'),
+(88, 10, '2020-06-05', 70, '1', 'Test', 'test', 'test', 'test', 'test');
 
 -- --------------------------------------------------------
 
@@ -229,6 +302,13 @@ CREATE TABLE `wishlist` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `carddetails`
+--
+ALTER TABLE `carddetails`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `Orders` (`Orders`);
 
 --
 -- Indexes for table `cart`
@@ -283,6 +363,12 @@ ALTER TABLE `wishlist`
 --
 
 --
+-- AUTO_INCREMENT for table `carddetails`
+--
+ALTER TABLE `carddetails`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
@@ -292,19 +378,19 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `orderdetails`
 --
 ALTER TABLE `orderdetails`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -315,6 +401,12 @@ ALTER TABLE `product`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `carddetails`
+--
+ALTER TABLE `carddetails`
+  ADD CONSTRAINT `carddetails_ibfk_1` FOREIGN KEY (`Orders`) REFERENCES `orders` (`ID`);
 
 --
 -- Constraints for table `cart`

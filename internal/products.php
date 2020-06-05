@@ -109,7 +109,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="item">
                             <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/6723/9780672337925.jpg" alt="img" height="100">
-                            <h6> Sams Teach Yourself Structured Query Language (SQL) in 10 Minutes </h6>
+                            <h6> Sams Teach Yourself Microsoft (SQL) in 10 Minutes </h6>
                             <h6><span class="price">$15</span> / <a href="http://localhost/bookstore/index.php?p=productinfo&pid=1">add to cart</a></h6>
                             <div class="hover">
                                 <a href="product-single.html"> 

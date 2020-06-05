@@ -69,7 +69,8 @@ if( ! isset($_SESSION['is_admin'])) {
          <li class="nav-item">
             <a class="nav-link " href="?p=book_delete">Delete Book</a>
          </li>
-          </ul>        
+          </ul>
+          
 END;
 	}
 	if($_SESSION['username']!='?') {
@@ -98,7 +99,7 @@ if( ! isset($_REQUEST['p'])) {
 }
 $p = $_REQUEST['p'];
 // list of the permited pages
-$pages = array('blog', 'myorders', 'register','start','aboutus','login','do_login','after_login','logout','myinfo','contact','products','cart','catinfo','productinfo','add_cart','empty_cart','buy_cart','delete_item','newBook','Book_edit','book_delete','checkout','payment','confirm_order', 'confirm_payment');
+$pages = array('blog', 'myorders', 'register','start','aboutus','login','do_login','after_login','logout','myinfo','contact','products','cart','catinfo','productinfo','add_cart','empty_cart','buy_cart','delete_item','newBook','Book_edit','book_delete','checkout','payment','confirm_order', 'confirm_payment', 'cancel_order');
 
 $ok=false;
 foreach($pages as $pp) {

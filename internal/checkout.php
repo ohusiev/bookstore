@@ -13,7 +13,7 @@
         <div class="container">
             <a class="breadcrumb-item" href="index.php?p=start">Home</a>
             <span class="breadcrumb-item active">Cart</span>
-			<span class="breadcrumb-item active">Delivery</span>
+			<span class="breadcrumb-item active">Checkout</span>
 </div>
 </div>
 <body>

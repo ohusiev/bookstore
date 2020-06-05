@@ -53,5 +53,16 @@
 		return $items;
 	}
 
+	function getOrderId($conn, $customerid){
+		$query = "SELECT ID FROM orders WHERE Customer = '$customerid'";
+		$result = mysqli_query($conn, $query);
+		if(!$result){
+			echo "retrieve data failed!" . mysqli_error($conn);
+			exit;
+		}
+		$row = mysqli_fetch_assoc($result);
+		return $row['ID'];
+	}
+
 
 ?>

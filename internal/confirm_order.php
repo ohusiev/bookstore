@@ -2,13 +2,13 @@
     require_once "internal/cart_operations.php";    
     
     $count = $_SESSION['total_items'];
-    $shippingfee = 10;
+    $shippingfee= 10;
     $amount = ($_SESSION['total_price'] + $shippingfee);
     $payment_mode = $_POST['payment_mode'];        
 	
     $sql = "INSERT INTO orders (Customer, Amount, payment_mode, ship_name, ship_address, ship_city, ship_zipcode, ship_country)  VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 	$stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("iissssis", $_SESSION['userid'], $amount, $payment_mode, $_POST['ship_name'], $_POST['ship_address'], $_POST['ship_city'], $_POST['ship_zipcode'], $_POST['ship_country']);
+	$stmt->bind_param("iissssss", $_SESSION['userid'], $amount, $payment_mode, $_POST['ship_name'], $_POST['ship_address'], $_POST['ship_city'], $_POST['ship_zipcode'], $_POST['ship_country']);
     $r = $stmt->execute();
     if(! $r) {
 		print "Application Error: ". $mysqli->error;
@@ -29,27 +29,28 @@
     print "<br><b>$count Product(s) were added to your order. Total cost :  $amount &euro;</b>.";
 
     //Email Order Confirmation to User
-    $to = "ho17@hw.ac.uk"; //this is for testing only. to change to customer's email
+    //I use SENDMAIL 
+        //--see attached php.ini and sendmail.ini files and placed them inside there respective folders inside XAMPP)
+        //--restart xampp before running file
+    $to = "webtester1996@gmail.com"; //this is for testing purposes only. to change to customer's email
     $subject = "Confirmation of Order# $orderid";    
-    $headers = "From: Biblioo Webstore";
+    $headers = "From: webtester1996@gmail.com";
     $msg = "
-    <html>
-    <head>
-    <title>Order Confirmation</title>
-    </head>
-    <body>
-    <p>This is to confirm your order with ID number: $orderid</p>  
-    <p>Please expect your order to reach within 5-15 business days.</p>
-    <p>Thank you for your purchase!</p>
-    </body>
-    </html>
-    ";
-    mail($to,$subject,$msg,$headers);
+    ORDER CONFIRMATION
+    This is to confirm your order with reference number: $orderid    
+    Please expect your order to reach within 5-15 business days.
+    Thank you for your purchase!
+    ";  
+    if(mail($to, $subject, $msg, $headers)){
+        print "<br>Your order has been processed sucessfully. Kindly check your email for confirmation.";
+    } else{
+        print "<br>Your order has been processed sucessfully. However, your confirmation email did not go through.";
+        print "<br>Kindly wait for awhile as we fix this issue. We are sorry for this inconvenience.";
+    }
 
-    if ($payment_mode==1){
-        print "<br>Your order has been processed sucessfully. Please proceed to <a href='?p=payment'>Payment</a>.";
-    } elseif ($payment_mode==2){
-        print "<br>Your order has been processed sucessfully. Please check your email.";        
+    if ($payment_mode==1){        
+        print "<br>Please proceed to <a href='?p=payment'>PAYMENT</a>.";
+    } elseif ($payment_mode==2){                
         $_SESSION['cart'] = array();
     }
 ?>

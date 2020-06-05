@@ -1,3 +1,4 @@
+<?php
 if($_SESSION['username']='?'){
     print <<< END
       <ul class="navbar-nav mr-auto">
@@ -51,3 +52,4 @@ if($_SESSION['username']='?'){
       </ul>
     END;
 }
+?>

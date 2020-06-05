@@ -8,7 +8,6 @@
 if (isset($_REQUEST['action_save'])) {
 	setlocale(LC_ALL, 'el_GR.UTF-8');
 	$sql = "UPDATE product SET Title='$_REQUEST[Title]', Description='$_REQUEST[Description]',Price='$_REQUEST[Price]', Category='$_REQUEST[Category]' WHERE ID='$_REQUEST[ID]'";
-	//$stmt->bind_param("ssssi", $_REQUEST['Title'], $_REQUEST['Decription'], $_REQUEST['Price'], $_REQUEST['Category'], $_SESSION['userid']);
 	$stmt = $mysqli->prepare($sql);
 	$r = $stmt->execute();
 	if($r) {
@@ -23,7 +22,7 @@ if (isset($_REQUEST['action_save'])) {
 <?php
 $sql = "SELECT * FROM product WHERE ID=?";
 $stmt = $mysqli->prepare($sql);
-$stmt->bind_param("s", $_REQUEST['ID']);
+$stmt->bind_param("i", $_REQUEST['ID']);
 $stmt->execute();
 $res = $stmt->get_result();
 $row = $res->fetch_assoc();

@@ -1,33 +1,15 @@
-<form method='POST'>
-  
 <head>
-
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Material Design Bootstrap</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-
-    </style>
-
-<h1> Contact us </h1>
-<style>
-    
-h1 {
-	color: #F90;
-  text-align: center;
-
-}
-</style>
-
 
 <style type="text/css" media="screen">
     div.elem-group {
   margin: 40px 0;
   text-align:center;
   }
-   
   input, select, textarea {
 	border-radius: 2px;
 	border: 1px solid #ccc;
@@ -36,27 +18,15 @@ h1 {
 	width: 500px;
     padding: 8px;
   }
-  
   textarea {
   height: 250px;
-  
   }
- 
   li {
   color: black;
-
-  
   }
- 
   p {
   color: white;
- 
-
-  
   }
- 
-
-  
   button {
 	height: 50px;
 	background: #F90;
@@ -66,21 +36,26 @@ h1 {
 	border-radius: 4px;
   cursor: pointer;
   }
-  
   button:hover {
 	border: 2px solid black;
   }
-
-</style>
-</head>
-<style>
-body {
+  body {
   background-image: url('https://i.pinimg.com/564x/c1/59/5c/c1595cbdcc1f24951ca656742f954a74.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
 }
+h1 {
+	color: #F90;
+  text-align: center;
+}
 </style>
+</head>
+
+<body>
+<h1>Contact us</h1>
+</body>
+
 
 <form  method='POST'>
   <div class="elem-group">
@@ -98,9 +73,9 @@ body {
 
   <div class="elem-group">
   <button type="submit">Send Message</button>
-  </div>
+  </div>  
+</form>   
 
-</form>
 <div class="elem-group">
 <ul class="contact-icons">
  <li><i class="fa fa-map-marker fa-2x"></i>
@@ -112,15 +87,13 @@ body {
    </li>
    <li>
      <i class="fa fa-envelope fa-2x"></i>
-     <p>biblioo@gmail.com</p>
+     <p><a href="mailto:biblioo@gmail.com">biblioo@gmail.com</a></p>
     </li>
    </ul>
-   </div>                       
+   </div>  
 <?php
 
 
-
- 
 if($_POST) {
     $visitor_name = "";
     $visitor_email = "";
@@ -146,7 +119,6 @@ if($_POST) {
     }
      
     $recipient = 'mm473@hw.ac.uk';
-
     $headers  = 'MIME-Version: 1.0' . "\r\n"
     .'Content-type: text/html; charset=utf-8' . "\r\n"
     .'From: ' . $visitor_email . "\r\n";

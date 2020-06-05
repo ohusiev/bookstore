@@ -16,7 +16,7 @@
     $r = $stmt->execute();
     if(! $r) {
         print "Application Error: ". $mysqli->error;
-        print "<br>Please try again. <a href='?p=payment'>PAYMENT</a>.";
+        print "<br>Please try <a href='?p=payment'>PAYMENT</a> again or <a href='?p=cancel_order'>CANCEL</a> your order.";
 		return;
     } else{
     

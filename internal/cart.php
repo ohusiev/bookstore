@@ -1,3 +1,22 @@
+<style>
+.borders-intro { box-sizing: border-box; margin-bottom: 41px; !important; padding: 0 40px; }
+.borders-intro span.reg { font-size: 70%; position: relative; top: -4px; }
+.cities {
+  background-color: lightgray;
+  color: black;
+  margin: 20px;
+  padding: 20px;
+}
+</style>
+<body>
+<div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="index.php?p=start">Home</a>
+            <span class="breadcrumb-item active">Cart</span>
+</div>
+</div>
+<body>
+
 <?php	
 	require_once "internal/cart_operations.php";	
 

@@ -44,11 +44,11 @@
         //--see attached php.ini and sendmail.ini files and placed them inside there respective folders inside XAMPP)
         //--restart xampp before running file
         $to = "webtester1996@gmail.com"; //this is for testing purposes only. to change to customer's email
-        $subject = "INVOICE for Order#: $orderid";    
+        $subject = "INVOICE";    
         $headers = "From: webtester1996@gmail.com";
         $msg = "
         INVOICE
-        This is to confirm your payment for order reference number# $orderid with the following details:
+        This is to confirm your payment with the following details:
         Cardholder: $card_owner
         Card Number: $card_number 
         CVV: $card_cvv

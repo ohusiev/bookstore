@@ -1,6 +1,5 @@
-<?php
-if($_SESSION['username']=='?'){
-    print <<<END
+if($_SESSION['username']='?'){
+    print <<< END
       <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="index.php?p=start">Home</a>
@@ -29,7 +28,7 @@ if($_SESSION['username']=='?'){
       </ul>
     END;
   }else{
-    print <<<END
+    print <<< END
       <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="index.php?p=start">Home</a>
@@ -52,4 +51,3 @@ if($_SESSION['username']=='?'){
       </ul>
     END;
 }
-?>

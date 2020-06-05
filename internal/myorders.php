@@ -13,7 +13,7 @@ $result = $mysqli->query($sql);
 if ($result->num_rows > 0){
 	while ($row = $result->fetch_assoc()){
         $tprise = $row['Quantity']*$row['Price'];
-        print "<tr><td align ='center'> $row[Orders] </td> <td align ='center'> $row[oDate] </td><td align ='center'>  $row[Product] </td><td>  $row[Title] </td><td align ='center'>  $row[Quantity] </td><td align ='center'>  $row[Price] </td><td align ='center'><b>$tprise</b></td></tr>";
+        print "<tr><td align ='center'> $row[Orders] </td> <td align ='center'> $row[oDate] </td><td align ='center'>  $row[Product] </td><td><a href='http://localhost/bookstore/index.php?p=productinfo&pid=$row[Product]'>  $row[Title]</a> </td><td align ='center'>  $row[Quantity] </td><td align ='center'>  $row[Price] </td><td align ='center'><b>$tprise</b></td></tr>";
         }
         print "</tbody></table>";
     }else{

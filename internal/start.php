@@ -1,28 +1,12 @@
 <html>
 <style>
-body {
-  background-image: url('https://i.pinimg.com/564x/c1/59/5c/c1595cbdcc1f24951ca656742f954a74.jpg');
-}
-header {
-    margin-top: 20px;
-    padding-bottom: 10px;
-}
-
-.logo-row {
-    width: 250px;
-    margin: 0 auto;
-}
-
-.logo {
-    width: 100%;
-    text-align: center;
-}
-
-.desc {
-    color: white;
-    text align: center;
-
-}
+body { background-image: url('https://i.pinimg.com/564x/c1/59/5c/c1595cbdcc1f24951ca656742f954a74.jpg');}
+header {margin-top: 20px; padding-bottom: 10px;}
+.logo-row { width: 250px; margin: 0 auto;}
+.logo {width: 100%;text-align: center;}
+.desc {color: white;text align: center;}
+.cities { background-color: lightgray;color: white; margin: 20px;padding: 20px;}
+.bseller { background-color: lightgray;color: black; margin: 20px;padding: 20px;}
 </style>
 
 <body>
@@ -91,5 +75,77 @@ Always re-inventing itself, Biblio continuously strives to serve the local readi
     </div>
     </div>
 </div>
+<br>
+        <br>
+
+        <br>
+        <br>
+    <section class="static about-sec">
+        <div class="bseller">
+        <h3>Bestsellers</h3>
+        <div class="entry-meta">
+			<span class="entry-date">June 2020</span> 
+					</div><!-- .entry-meta -->
+        
+        <br><div class="cities">
+            <div class="recomended-sec">
+                <div class="row">
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="item">
+                            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/6723/9780672337925.jpg" alt="img" height="100">
+                            <h6> Sams Teach Yourself Microsoft (SQL) in 10 Minutes </h6>
+                            <h6><span class="price">$15</span> / <a href="http://localhost/bookstore/index.php?p=productinfo&pid=1">add to cart</a></h6>
+                            <div class="hover">
+                                <a href="product-single.html"> 
+                            <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="item">
+                        <img src="https://media.wiley.com/product_data/coverImage300/71/04709010/0470901071.jpg" alt="img" height="100">
+                            <h6> CCNA: Cisco Certified Network Associate Study Guide (third edition) </h6>
+                            <h6><span class="price">$50</span> / <a href="http://localhost/bookstore/index.php?p=productinfo&pid=11">add to cart</a></h6>
+                            <div class="hover">
+                                <a href="product-single.html"> 
+                            <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="item">
+                        <img src="https://covers.oreillystatic.com/images/9780596005658/lrg.jpg" alt="img" height="100">
+                            <h6> Understanding the Linux Kernel for dummy, Third Edition </h6>
+                            <h6><span class="price">$30</span> / <a href="http://localhost/bookstore/index.php?p=productinfo&pid=9">add to cart</a></h6>
+                            <div class="hover">
+                                <a href="product-single.html"> 
+                            <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="item">
+                        <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1174910069l/453148._SX318_.jpg" alt="img" height="100">
+                            <h6> Beginning Web Programming with HTML, XHTML, and CSS </h6>
+                            <h6><span class="price">$35</span> / <a href="http://localhost/bookstore/index.php?p=productinfo&pid=14">add to cart</a></h6>
+                            <div class="hover">
+                                <a href="product-single.html"> 
+                            <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
 <p></p>
 </section>
